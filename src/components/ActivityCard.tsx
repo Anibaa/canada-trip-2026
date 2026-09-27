@@ -12,6 +12,10 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         <PriceTag cad={activity.priceCad} />
       </div>
       <p className="text-sm leading-relaxed text-ink-soft">{activity.description}</p>
+      <p className="text-sm">
+        <span className="font-bold text-teal">Best time · </span>
+        {activity.best}
+      </p>
       <div className="mt-1 flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-ink-soft">
           ~{activity.durationHrs}h

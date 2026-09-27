@@ -20,6 +20,7 @@ const navLinks = [
   { href: "/toronto", label: "Toronto & Niagara" },
   { href: "/montreal", label: "Montreal" },
   { href: "/itinerary", label: "Itinerary" },
+  { href: "/guide", label: "Day guide" },
   { href: "/transport", label: "Transport & Budget" },
 ];
 

@@ -45,6 +45,7 @@ export interface Activity {
   durationHrs: number;
   mapQuery: string;
   photo: PhotoId;
+  best: string; // best time of day / week to go
 }
 
 export interface TransportLeg {
@@ -87,6 +88,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Stanley Park Seawall Vancouver",
         photo: "stanley-park-seawall",
+        best: "Late afternoon into golden hour; mornings are quietest.",
       },
       {
         name: "Gastown & Granville Island",
@@ -96,6 +98,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Granville Island Public Market Vancouver",
         photo: "granville-island",
+        best: "9–11 am, before the crowds (market opens 9:00).",
       },
       {
         name: "English Bay Beach at sunset",
@@ -105,6 +108,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "English Bay Beach Vancouver",
         photo: "english-bay",
+        best: "20 min before sunset (≈18:30–18:50 in early Oct).",
       },
       {
         name: "Lynn Canyon Park suspension bridge",
@@ -114,6 +118,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Lynn Canyon Park Suspension Bridge North Vancouver",
         photo: "lynn-canyon",
+        best: "Weekday mornings — the bridge gets busy by midday.",
       },
       {
         name: "Deep Cove & Quarry Rock hike",
@@ -123,6 +128,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Quarry Rock Trail Deep Cove North Vancouver",
         photo: "deep-cove",
+        best: "Early morning or a clear weekend morning; trail is muddy after rain.",
       },
       {
         name: "Queen Elizabeth Park & Bloedel Conservatory",
@@ -132,6 +138,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Bloedel Conservatory Queen Elizabeth Park Vancouver",
         photo: "queen-elizabeth-park",
+        best: "Mid-afternoon on a clear day; conservatory open 10–17.",
       },
       {
         name: "Dr. Sun Yat-Sen Classical Chinese Garden",
@@ -141,6 +148,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "Dr. Sun Yat-Sen Classical Chinese Garden Vancouver",
         photo: "sun-yat-sen-garden",
+        best: "Midday; beautiful in the rain too.",
       },
       {
         name: "Museum of Anthropology at UBC",
@@ -150,6 +158,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Museum of Anthropology at UBC Vancouver",
         photo: "moa-ubc",
+        best: "Thursday evening (open until 21:00). Closed Mondays.",
       },
       {
         name: "Vancouver Aquarium",
@@ -159,6 +168,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Vancouver Aquarium",
         photo: "vancouver-aquarium",
+        best: "Opening time (10:00) on a rainy day. Open 10–17 in October.",
       },
       {
         name: "Capilano Suspension Bridge + Grouse Mountain combo",
@@ -168,6 +178,7 @@ export const cities = {
         durationHrs: 6,
         mapQuery: "Capilano Suspension Bridge Park",
         photo: "capilano",
+        best: "Right at opening, before tour buses (~11:00).",
       },
     ] as Activity[],
     food: [
@@ -217,6 +228,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "CN Tower Toronto",
         photo: "cn-tower",
+        best: "After dark for the city lights (sunset ≈18:40 on Oct 11). Open 8:30–22:30.",
       },
       {
         name: "Distillery District",
@@ -226,6 +238,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Distillery District Toronto",
         photo: "distillery-district",
+        best: "Late afternoon, when the lights come on.",
       },
       {
         name: "Kensington Market",
@@ -235,6 +248,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Kensington Market Toronto",
         photo: "kensington-market",
+        best: "Late morning to mid-afternoon, when the stalls are open.",
       },
       {
         name: "Toronto Islands ferry",
@@ -244,6 +258,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Jack Layton Ferry Terminal Toronto",
         photo: "toronto-islands",
+        best: "Late afternoon — the skyline view at sunset from Centre Island.",
       },
       {
         name: "Royal Ontario Museum",
@@ -253,6 +268,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Royal Ontario Museum Toronto",
         photo: "rom",
+        best: "Right at opening; allow 3 h.",
       },
       {
         name: "Casa Loma",
@@ -262,6 +278,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Casa Loma Toronto",
         photo: "casa-loma",
+        best: "Morning, before the tour groups.",
       },
       {
         name: "Ripley's Aquarium of Canada",
@@ -271,6 +288,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Ripley's Aquarium of Canada Toronto",
         photo: "ripleys-aquarium",
+        best: "Evening, combined with the CN Tower next door.",
       },
       {
         name: "Horseshoe Falls viewpoint",
@@ -280,6 +298,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "Table Rock Niagara Falls",
         photo: "horseshoe-falls",
+        best: "Morning for fewer crowds; after dark the falls are lit up.",
       },
       {
         name: "Journey Behind the Falls + Niagara City Cruises boat",
@@ -289,6 +308,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Journey Behind the Falls Niagara",
         photo: "niagara-boat",
+        best: "Midday sun makes rainbows in the spray.",
       },
       {
         name: "Whirlpool Aero Car",
@@ -298,6 +318,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "Whirlpool Aero Car Niagara Falls",
         photo: "whirlpool-aero-car",
+        best: "Afternoon, on a dry, calm day.",
       },
       {
         name: "Skylon Tower (optional)",
@@ -307,6 +328,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "Skylon Tower Niagara Falls",
         photo: "skylon-tower",
+        best: "Just before sunset, or after dark for the illuminated falls.",
       },
       {
         name: "Niagara-on-the-Lake",
@@ -316,6 +338,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Queen Street Niagara-on-the-Lake",
         photo: "niagara-on-the-lake",
+        best: "Only with a car or tour — late afternoon is loveliest.",
       },
     ] as Activity[],
     food: [
@@ -385,6 +408,7 @@ export const cities = {
         durationHrs: 1,
         mapQuery: "Notre-Dame Basilica Montreal",
         photo: "notre-dame",
+        best: "First entry of the morning (Sunday opens only from 12:30).",
       },
       {
         name: "Old Montreal & the Old Port",
@@ -394,6 +418,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Old Montreal",
         photo: "old-montreal",
+        best: "Dusk onward, when the facades are lit.",
       },
       {
         name: "Mount Royal lookout",
@@ -403,6 +428,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Kondiaronk Belvedere Mount Royal Montreal",
         photo: "mount-royal",
+        best: "Clear afternoon: the sun lights downtown from behind you.",
       },
       {
         name: "Saint Joseph's Oratory",
@@ -412,6 +438,7 @@ export const cities = {
         durationHrs: 1.5,
         mapQuery: "Saint Joseph's Oratory Montreal",
         photo: "st-joseph-oratory",
+        best: "Early morning — calm, before tour groups.",
       },
       {
         name: "Plateau Mont-Royal & its outdoor staircases",
@@ -421,6 +448,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Plateau Mont-Royal Montreal",
         photo: "plateau",
+        best: "Afternoon walk, then dinner nearby.",
       },
       {
         name: "Jean-Talon Market",
@@ -430,6 +458,7 @@ export const cities = {
         durationHrs: 1.5,
         mapQuery: "Marché Jean-Talon Montreal",
         photo: "jean-talon",
+        best: "Mid-morning, especially weekends in harvest season.",
       },
       {
         name: "Lachine Canal path",
@@ -439,6 +468,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Lachine Canal National Historic Site Montreal",
         photo: "lachine-canal",
+        best: "Afternoon bike ride, ending at Atwater Market.",
       },
       {
         name: "Montreal Botanical Garden",
@@ -448,6 +478,7 @@ export const cities = {
         durationHrs: 3,
         mapQuery: "Montreal Botanical Garden",
         photo: "botanical-garden",
+        best: "Late afternoon, then stay for the Gardens of Light (from 18:30).",
       },
       {
         name: "Biodôme",
@@ -457,6 +488,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Biodôme de Montréal",
         photo: "biodome",
+        best: "Morning. Closed Mondays, except holiday Mondays (Oct 12 is one).",
       },
       {
         name: "Pointe-à-Callière museum",
@@ -466,6 +498,7 @@ export const cities = {
         durationHrs: 2,
         mapQuery: "Pointe-à-Callière Montreal",
         photo: "pointe-a-calliere",
+        best: "Morning, before the Old Montreal crowds.",
       },
     ] as Activity[],
     food: [
