@@ -1,0 +1,325 @@
+{
+  "source": "Open-Meteo historical archive (ERA5), Oct 1–13, 2016–2025",
+  "cities": {
+    "vancouver": {
+      "10-01": {
+        "max": 15,
+        "min": 10,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-02": {
+        "max": 16,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-03": {
+        "max": 15,
+        "min": 9,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-04": {
+        "max": 14,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-05": {
+        "max": 15,
+        "min": 9,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-06": {
+        "max": 15,
+        "min": 10,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-07": {
+        "max": 16,
+        "min": 10,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-08": {
+        "max": 14,
+        "min": 10,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-09": {
+        "max": 14,
+        "min": 9,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-10": {
+        "max": 13,
+        "min": 8,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-11": {
+        "max": 13,
+        "min": 7,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-12": {
+        "max": 13,
+        "min": 7,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-13": {
+        "max": 14,
+        "min": 8,
+        "rainChance": 50,
+        "years": 10
+      }
+    },
+    "montreal": {
+      "10-01": {
+        "max": 18,
+        "min": 10,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-02": {
+        "max": 16,
+        "min": 9,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-03": {
+        "max": 17,
+        "min": 9,
+        "rainChance": 10,
+        "years": 10
+      },
+      "10-04": {
+        "max": 20,
+        "min": 10,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-05": {
+        "max": 19,
+        "min": 10,
+        "rainChance": 10,
+        "years": 10
+      },
+      "10-06": {
+        "max": 20,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-07": {
+        "max": 18,
+        "min": 10,
+        "rainChance": 60,
+        "years": 10
+      },
+      "10-08": {
+        "max": 15,
+        "min": 8,
+        "rainChance": 60,
+        "years": 10
+      },
+      "10-09": {
+        "max": 15,
+        "min": 8,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-10": {
+        "max": 16,
+        "min": 8,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-11": {
+        "max": 15,
+        "min": 7,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-12": {
+        "max": 17,
+        "min": 7,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-13": {
+        "max": 14,
+        "min": 8,
+        "rainChance": 30,
+        "years": 10
+      }
+    },
+    "toronto": {
+      "10-01": {
+        "max": 19,
+        "min": 11,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-02": {
+        "max": 19,
+        "min": 11,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-03": {
+        "max": 19,
+        "min": 10,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-04": {
+        "max": 20,
+        "min": 11,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-05": {
+        "max": 19,
+        "min": 11,
+        "rainChance": 10,
+        "years": 10
+      },
+      "10-06": {
+        "max": 21,
+        "min": 13,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-07": {
+        "max": 19,
+        "min": 12,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-08": {
+        "max": 16,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-09": {
+        "max": 17,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-10": {
+        "max": 18,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-11": {
+        "max": 17,
+        "min": 9,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-12": {
+        "max": 17,
+        "min": 10,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-13": {
+        "max": 16,
+        "min": 9,
+        "rainChance": 50,
+        "years": 10
+      }
+    },
+    "niagara": {
+      "10-01": {
+        "max": 20,
+        "min": 12,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-02": {
+        "max": 20,
+        "min": 11,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-03": {
+        "max": 20,
+        "min": 12,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-04": {
+        "max": 21,
+        "min": 12,
+        "rainChance": 60,
+        "years": 10
+      },
+      "10-05": {
+        "max": 20,
+        "min": 12,
+        "rainChance": 10,
+        "years": 10
+      },
+      "10-06": {
+        "max": 22,
+        "min": 13,
+        "rainChance": 40,
+        "years": 10
+      },
+      "10-07": {
+        "max": 19,
+        "min": 13,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-08": {
+        "max": 18,
+        "min": 11,
+        "rainChance": 50,
+        "years": 10
+      },
+      "10-09": {
+        "max": 17,
+        "min": 11,
+        "rainChance": 20,
+        "years": 10
+      },
+      "10-10": {
+        "max": 18,
+        "min": 11,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-11": {
+        "max": 19,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-12": {
+        "max": 19,
+        "min": 10,
+        "rainChance": 30,
+        "years": 10
+      },
+      "10-13": {
+        "max": 16,
+        "min": 10,
+        "rainChance": 60,
+        "years": 10
+      }
+    }
+  }
+}

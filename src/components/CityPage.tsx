@@ -1,6 +1,8 @@
 import type { Activity, FoodSpot } from "@/lib/trip-data";
 import { ActivityCard } from "./ActivityCard";
 import { FoodCard } from "./FoodCard";
+import { WeatherChip, WeatherNote } from "./Weather";
+import type { DayWeather } from "@/lib/weather";
 
 export function CityPage({
   name,
@@ -8,12 +10,16 @@ export function CityPage({
   intro,
   activities,
   food,
+  weather,
+  fetchedAt,
 }: {
   name: string;
   dates: string;
   intro: string;
   activities: Activity[];
   food: FoodSpot[];
+  weather: DayWeather[];
+  fetchedAt: Date;
 }) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
@@ -25,6 +31,14 @@ export function CityPage({
         {activities.length} things to do · {food.length} halal spots. Prices are approximate 2026 adult
         rates — check the official site before you go.
       </p>
+
+      <h2 className="mb-4 mt-12 font-display text-2xl font-semibold">Weather while you&apos;re here</h2>
+      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+        {weather.map((w) => (
+          <WeatherChip key={w.date + w.place} w={w} showPlace={weather.some((x) => x.place !== w.place)} />
+        ))}
+      </div>
+      <WeatherNote fetchedAt={fetchedAt} />
 
       <h2 className="mb-4 mt-12 font-display text-2xl font-semibold">Things to do</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

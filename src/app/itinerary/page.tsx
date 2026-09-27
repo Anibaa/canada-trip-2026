@@ -1,9 +1,14 @@
 import { dayPlans } from "@/lib/trip-data";
 import { MapLink } from "@/components/MapLink";
+import { WeatherChip, WeatherNote } from "@/components/Weather";
+import { datesFromLabel, getTripWeather } from "@/lib/weather";
+
+export const revalidate = 10800; // re-fetch the forecast every 3 h
 
 export const metadata = { title: "Itinerary — Canada Loop" };
 
-export default function ItineraryPage() {
+export default async function ItineraryPage() {
+  const { byDate, fetchedAt } = await getTripWeather();
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
       <p className="mb-2 text-sm font-bold uppercase tracking-widest text-teal">Day by day</p>
@@ -11,6 +16,7 @@ export default function ItineraryPage() {
       <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
         13 days, one direction. Overnight buses on Oct 10 and Oct 12 double as lodging.
       </p>
+      <WeatherNote fetchedAt={fetchedAt} />
 
       <div className="mt-10 flex flex-col gap-4">
         {dayPlans.map((d) => (
@@ -24,6 +30,13 @@ export default function ItineraryPage() {
               </span>
             </div>
             <p className="mt-1 text-base font-semibold text-teal">{d.title}</p>
+            <div className="-mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-1">
+              {datesFromLabel(d.date).flatMap((iso) =>
+                (byDate[iso] ?? []).map((w) => (
+                  <WeatherChip key={iso + w.place} w={w} showPlace={byDate[iso].length > 1} />
+                )),
+              )}
+            </div>
             <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-ink-soft sm:grid-cols-3">
               {d.morning && (
                 <p>
