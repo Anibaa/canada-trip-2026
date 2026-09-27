@@ -107,7 +107,7 @@
     "src": "/places/rom.jpg",
     "width": 800,
     "height": 490,
-    "credit": "Maksim Sokolov (Maxergon)",
+    "credit": "Maksim Sokolov",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Royal_Ontario_Museum_in_Fall_2021.jpg"
   },
@@ -187,7 +187,7 @@
     "src": "/places/jean-talon.jpg",
     "width": 800,
     "height": 533,
-    "credit": "Brandon Moore (Raskuly)",
+    "credit": "Brandon Moore",
     "license": "CC BY 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:March%C3%A9_Jean-Talon_05-11-2024.jpg"
   },
@@ -362,5 +362,214 @@
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Punjabi_Chicken_Karahi.JPG",
     "caption": "Dish photo: chicken karahi"
+  },
+  "yvr": {
+    "src": "/places/yvr.jpg",
+    "width": 960,
+    "height": 640,
+    "credit": "Wpcpey",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:YVR_International_Terminal_2018.jpg"
+  },
+  "canada-place": {
+    "src": "/places/canada-place.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Nicolas Untz",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Canada_Place_Landing.jpg"
+  },
+  "grouse": {
+    "src": "/places/grouse.jpg",
+    "width": 800,
+    "height": 536,
+    "credit": "Pburka at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Grouse_Mountain_Gondola.JPG"
+  },
+  "aquabus": {
+    "src": "/places/aquabus.jpg",
+    "width": 800,
+    "height": 531,
+    "credit": "Joe Mabel",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Granville_Island_-_boarding_Aquabus.jpg"
+  },
+  "coal-harbour": {
+    "src": "/places/coal-harbour.jpg",
+    "width": 800,
+    "height": 403,
+    "credit": "Bobak Ha'Eri",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2009-0604-VancouverConventionCentreW.JPG"
+  },
+  "union-station": {
+    "src": "/places/union-station.jpg",
+    "width": 800,
+    "height": 558,
+    "credit": "– Wladyslaw [Disk.]",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toronto_-_ON_-_Union_Station.jpg"
+  },
+  "pearson": {
+    "src": "/places/pearson.jpg",
+    "width": 960,
+    "height": 301,
+    "credit": "Qyd",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Toronto_Pearson_Airport-Terminal_1.JPG"
+  },
+  "yul": {
+    "src": "/places/yul.jpg",
+    "width": 960,
+    "height": 640,
+    "credit": "Wilfredor",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Montr%C3%A9al-Pierre_Elliott_Trudeau_International_Airport_0001_04.jpg"
+  },
+  "carre-saint-louis": {
+    "src": "/places/carre-saint-louis.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Original uploader was FRED at fr.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Square_Saint-Louis3.JPG"
+  },
+  "place-jacques-cartier": {
+    "src": "/places/place-jacques-cartier.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Jeangagnon",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Place_Jacques-Cartier_115.jpg"
+  },
+  "yyc": {
+    "src": "/places/yyc.jpg",
+    "width": 960,
+    "height": 641,
+    "credit": "Milan Suvajac",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Calgary_AB_Airport_Calgary-International-Airport_2022-09-29.jpg"
+  },
+  "fco": {
+    "src": "/places/fco.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Apaleutos25",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rome_Fiumicino_Leonardo_da_Vinci_International_Airport,_Aeroporto_internazionale_di_Roma-Fiumicino_%22Leonardo_da_Vinci%22.jpg"
+  },
+  "fra": {
+    "src": "/places/fra.jpg",
+    "width": 960,
+    "height": 720,
+    "credit": "Donald24",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Frankfurt_Flughafen,_Terminal_1,_Abflughalle_B.jpg"
+  },
+  "clifton-hill": {
+    "src": "/places/clifton-hill.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Antony-22",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_from_Skylon_Tower_2023m.jpg"
+  },
+  "food-nanaimo-bar": {
+    "src": "/places/food-nanaimo-bar.jpg",
+    "width": 800,
+    "height": 602,
+    "credit": "Stephanie Spencer",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Nanaimo_bar.JPG",
+    "caption": "Local food: Nanaimo bar"
+  },
+  "food-donut": {
+    "src": "/places/food-donut.jpg",
+    "width": 800,
+    "height": 524,
+    "credit": "Evan-Amos",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Glazed-Donut.jpg",
+    "caption": "Local food: honey-dip doughnut"
+  },
+  "food-butter-tart": {
+    "src": "/places/food-butter-tart.jpg",
+    "width": 800,
+    "height": 450,
+    "credit": "Alex Lozupone",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ButtertartS1360020.jpg",
+    "caption": "Local food: butter tart"
+  },
+  "food-beavertails": {
+    "src": "/places/food-beavertails.jpg",
+    "width": 960,
+    "height": 721,
+    "credit": "BeaverTails",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Three_BeaverTails_pastry_flavours.jpg",
+    "caption": "Local food: BeaverTails pastry"
+  },
+  "food-timbits": {
+    "src": "/places/food-timbits.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Mack Male from Edmonton, AB, Canada",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Timbits_(2897186453).jpg",
+    "caption": "Local food: Timbits"
+  },
+  "food-bagel": {
+    "src": "/places/food-bagel.jpg",
+    "width": 800,
+    "height": 643,
+    "credit": "Garyperlman at English Wikipedia",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Bagels-Montreal-REAL.jpg",
+    "caption": "Local food: Montreal bagel"
+  },
+  "food-poutine": {
+    "src": "/places/food-poutine.jpg",
+    "width": 960,
+    "height": 820,
+    "credit": "Jonathunder",
+    "license": "GFDL 1.2",
+    "source": "https://commons.wikimedia.org/wiki/File:Poutine.JPG",
+    "caption": "Local food: poutine"
+  },
+  "food-maple": {
+    "src": "/places/food-maple.jpg",
+    "width": 660,
+    "height": 634,
+    "credit": "The original uploader was SimonP at English Wikipedia.",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Maple_toffee.JPG",
+    "caption": "Local food: maple taffy"
+  },
+  "steam-clock": {
+    "src": "/places/steam-clock.jpg",
+    "width": 960,
+    "height": 960,
+    "credit": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vancouver_(BC,_Canada),_Gastown_Steam_Clock_--_2022_--_1836.jpg"
+  },
+  "cartier": {
+    "src": "/places/cartier.jpg",
+    "width": 960,
+    "height": 686,
+    "credit": "fargomeD",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Metro_Cartier.jpg"
+  },
+  "food-candied-salmon": {
+    "src": "/places/food-candied-salmon.jpg",
+    "width": 960,
+    "height": 1280,
+    "credit": "Takeaway",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2014_smoked_salmon_and_egg_salad_toasted_baguette.JPG",
+    "caption": "Local food: smoked & candied salmon"
   }
 }

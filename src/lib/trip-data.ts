@@ -48,6 +48,16 @@ export interface Activity {
   best: string; // best time of day / week to go
 }
 
+// Signature local dishes — halal notes because not all of them are halal everywhere.
+export interface LocalDish {
+  name: string;
+  what: string;
+  halalNote: string;
+  where: string;
+  mapQuery: string;
+  photo: PhotoId;
+}
+
 export interface TransportLeg {
   from: string;
   to: string;
@@ -213,6 +223,32 @@ export const cities = {
         photo: "dish-manakish",
       },
     ] as FoodSpot[],
+    localFood: [
+      {
+        name: "Candied wild salmon",
+        what: "BC's smoky-sweet salmon strips, cured with maple or brown sugar — the snack locals bring home.",
+        halalNote: "Fish, so generally fine — check the glaze has no wine or rum.",
+        where: "Longliner Seafoods, Granville Island Public Market",
+        mapQuery: "Longliner Seafoods Granville Island Public Market",
+        photo: "food-candied-salmon"
+      },
+      {
+        name: "Nanaimo bar",
+        what: "No-bake layered bar — chocolate-coconut crumb, custard buttercream, chocolate top. Named after a BC town.",
+        halalNote: "No meat; ask if a flavour uses gelatin.",
+        where: "Northern Bars, Granville Island Public Market",
+        mapQuery: "Northern Bars Granville Island Public Market",
+        photo: "food-nanaimo-bar"
+      },
+      {
+        name: "Honey-dip doughnut",
+        what: "Hand-made classic from Lee's Donuts, a Granville Island institution since 1979.",
+        halalNote: "Vegetarian; ask about the frying fat if you're strict.",
+        where: "Lee's Donuts, Granville Island Public Market",
+        mapQuery: "Lee's Donuts Granville Island",
+        photo: "food-donut"
+      }
+    ] as LocalDish[],
   },
   toronto: {
     name: "Toronto & Niagara Falls",
@@ -393,6 +429,32 @@ export const cities = {
         photo: "dish-shish-kebab",
       },
     ] as FoodSpot[],
+    localFood: [
+      {
+        name: "Butter tart",
+        what: "Ontario's classic: flaky pastry with a gooey butter-and-brown-sugar filling.",
+        halalNote: "Some bakeries use lard in the pastry — ask for an all-butter one.",
+        where: "Wanda's Pie in the Sky, 287 Augusta Ave (Kensington Market)",
+        mapQuery: "Wanda's Pie in the Sky 287 Augusta Ave Toronto",
+        photo: "food-butter-tart"
+      },
+      {
+        name: "BeaverTails",
+        what: "Hand-stretched fried dough shaped like a beaver's tail, topped with cinnamon sugar and lemon.",
+        halalNote: "Vegetarian pastry — pick sweet toppings.",
+        where: "BeaverTails, 4967 Clifton Hill, Niagara Falls",
+        mapQuery: "BeaverTails 4967 Clifton Hill Niagara Falls",
+        photo: "food-beavertails"
+      },
+      {
+        name: "Timbits & a double-double",
+        what: "Tim Hortons doughnut holes and a coffee with two creams, two sugars — Canada's daily ritual.",
+        halalNote: "Timbits are vegetarian; a few flavours may contain gelatin — check the list in the app.",
+        where: "Tim Hortons — there's one in Union Station",
+        mapQuery: "Tim Hortons Union Station Toronto",
+        photo: "food-timbits"
+      }
+    ] as LocalDish[],
   },
   montreal: {
     name: "Montreal",
@@ -543,31 +605,79 @@ export const cities = {
         photo: "dish-butter-chicken",
       },
     ] as FoodSpot[],
+    localFood: [
+      {
+        name: "Montreal bagel",
+        what: "Boiled in honey water and baked in a wood-fired oven — smaller, denser and sweeter than a New York bagel.",
+        halalNote: "Plain and sesame bagels are just dough; check any fillings.",
+        where: "St-Viateur Bagel, 263 Saint-Viateur O (open 24 h)",
+        mapQuery: "St-Viateur Bagel 263 Rue Saint-Viateur O Montreal",
+        photo: "food-bagel"
+      },
+      {
+        name: "Poutine",
+        what: "Quebec's signature dish: fries, squeaky cheese curds and hot gravy.",
+        halalNote: "Regular gravy is usually made with non-halal stock — order it at a halal place like Boustan.",
+        where: "Boustan, 2020 Rue Crescent",
+        mapQuery: "Boustan 2020 Rue Crescent Montreal",
+        photo: "food-poutine"
+      },
+      {
+        name: "Maple taffy & maple butter",
+        what: "Quebec makes most of the world's maple syrup — try taffy, maple butter and maple candy.",
+        halalNote: "Pure maple products are fine.",
+        where: "Jean-Talon Market (maple stalls)",
+        mapQuery: "Marché Jean-Talon Montreal",
+        photo: "food-maple"
+      }
+    ] as LocalDish[],
   },
 };
 
 export const transportLegs: TransportLeg[] = [
   {
-    from: "Vancouver",
-    to: "Calgary",
-    mode: "Flight (connection)",
-    distanceKm: 690,
-    durationLabel: "~1h20 flight",
-    priceCad: "Already booked",
+    from: "Tunis (TUN)",
+    to: "Frankfurt (FRA)",
+    mode: "Flight — booked",
+    distanceKm: 1470,
+    durationLabel: "Oct 1, 01:35 → 05:10 · AC9277",
+    priceCad: "Booked",
     priceTnd: "—",
     booked: true,
-    mapQuery: "Vancouver to Calgary",
+    mapQuery: "Tunis-Carthage Airport to Frankfurt Airport"
   },
   {
-    from: "Calgary",
-    to: "Montreal",
-    mode: "Flight",
-    distanceKm: 3000,
-    durationLabel: "~4h flight",
-    priceCad: "Already booked",
+    from: "Frankfurt (FRA)",
+    to: "Vancouver (YVR)",
+    mode: "Flight — booked",
+    distanceKm: 8060,
+    durationLabel: "Oct 1, 13:20 → 14:20 (~10h)",
+    priceCad: "Booked",
     priceTnd: "—",
     booked: true,
-    mapQuery: "Calgary to Montreal",
+    mapQuery: "Frankfurt Airport to Vancouver International Airport"
+  },
+  {
+    from: "Vancouver (YVR)",
+    to: "Calgary (YYC)",
+    mode: "Flight — booked",
+    distanceKm: 690,
+    durationLabel: "Oct 8, 19:30 → 21:59 (~1h30)",
+    priceCad: "Booked",
+    priceTnd: "—",
+    booked: true,
+    mapQuery: "Vancouver International Airport to Calgary International Airport"
+  },
+  {
+    from: "Calgary (YYC)",
+    to: "Montréal (YUL)",
+    mode: "Flight — booked",
+    distanceKm: 3000,
+    durationLabel: "Oct 9, 01:00 → 07:10 (~4h10, overnight)",
+    priceCad: "Booked",
+    priceTnd: "—",
+    booked: true,
+    mapQuery: "Calgary International Airport to Montreal Trudeau Airport"
   },
   {
     from: "Montreal (Laval – Métro Cartier)",
@@ -586,7 +696,7 @@ export const transportLegs: TransportLeg[] = [
     to: "Niagara Falls",
     mode: "GO Train",
     distanceKm: 130,
-    durationLabel: "~2h each way",
+    durationLabel: "Oct 11 · 07:45 → 10:15 (train + GO bus), back 16:02 → 18:24",
     priceCad: "≈$22 CAD one-way",
     priceTnd: `≈${cadToTnd(22)} TND`,
     booked: false,
@@ -603,6 +713,28 @@ export const transportLegs: TransportLeg[] = [
     booked: true,
     notes: "Overnight bus doubles as a hotel night.",
     mapQuery: "Toronto Pearson Airport Terminal 1 to Laval Terminus Metro Cartier",
+  },
+  {
+    from: "Montréal (YUL)",
+    to: "Rome (FCO)",
+    mode: "Flight — booked",
+    distanceKm: 6580,
+    durationLabel: "Oct 12, 19:25 → Oct 13, 09:15 (~7h50, overnight)",
+    priceCad: "Booked",
+    priceTnd: "—",
+    booked: true,
+    mapQuery: "Montreal Trudeau Airport to Rome Fiumicino Airport"
+  },
+  {
+    from: "Rome (FCO)",
+    to: "Tunis (TUN)",
+    mode: "Flight — booked",
+    distanceKm: 580,
+    durationLabel: "Oct 13, 17:00 → 17:20 (~1h20)",
+    priceCad: "Booked",
+    priceTnd: "—",
+    booked: true,
+    mapQuery: "Rome Fiumicino Airport to Tunis-Carthage Airport"
   },
 ];
 
@@ -631,77 +763,93 @@ export const dayPlans: DayPlan[] = [
   {
     day: "Day 1",
     date: "Oct 1",
-    city: "Vancouver",
-    title: "Arrival",
-    afternoon: "Settle in, walk Stanley Park Seawall at golden hour.",
-    evening: "Dinner at Nuba (halal, Gastown).",
+    city: "Tunis → Vancouver",
+    title: "Fly in via Frankfurt",
+    morning: "TUN 01:35 → FRA 05:10, FRA 13:20 → YVR 14:20.",
+    afternoon: "Canada Line downtown, check in, Stanley Park Seawall at golden hour.",
+    evening: "English Bay sunset (18:50), dinner at Nuba (halal).",
     food: [cities.vancouver.food[0]],
+    transport: "Flights booked · Canada Line YVR → downtown ≈0–12",
   },
   {
     day: "Day 2–3",
     date: "Oct 2–3",
     city: "Vancouver",
     title: "Free days before IASAM",
-    morning: "Granville Island Public Market.",
-    afternoon: "Capilano Suspension Bridge + Grouse Mountain gondola.",
-    evening: "Dinner at Moltaqa (halal Moroccan, Yaletown).",
-    food: [cities.vancouver.food[1]],
+    morning: "Capilano Suspension Bridge (Oct 2) · Granville Island market (Oct 3).",
+    afternoon: "Grouse Mountain (Oct 2) · Gastown, Chinatown & Queen Elizabeth Park (Oct 3).",
+    evening: "Dinner at Moltaqa (Fri) and Manoush'eh (Sat), both halal.",
+    food: [cities.vancouver.food[1], cities.vancouver.food[2]],
   },
   {
-    day: "Day 4–8",
-    date: "Oct 4–8",
+    day: "Day 4–7",
+    date: "Oct 4–7",
     city: "Vancouver",
     title: "IASAM event",
     morning: "Conference sessions.",
-    evening: "Evenings free — Vancouver Aquarium or Gastown.",
+    evening: "Coal Harbour, English Bay sunset, Seawall by bike — see the Day guide.",
+  },
+  {
+    day: "Day 8",
+    date: "Oct 8",
+    city: "Vancouver → Calgary",
+    title: "Last IASAM day, evening flight",
+    morning: "Check out, bags in the hotel luggage room, conference.",
+    afternoon: "Collect bags 16:30, Canada Line to YVR.",
+    evening: "YVR 19:30 → YYC 21:59, connection, YYC 01:00 → YUL 07:10.",
+    transport: "Flights booked",
   },
   {
     day: "Day 9",
     date: "Oct 9",
     city: "Montreal",
-    title: "Arrive Montreal",
-    afternoon: "Land, check in, walk Old Montreal & the Old Port.",
-    evening: "Dinner at Shawarmaz (halal, Saint-Catherine St W).",
-    food: [cities.montreal.food[0]],
+    title: "Land 07:10, full Montreal day",
+    morning: "747 bus downtown, St-Viateur bagels, Jean-Talon Market.",
+    afternoon: "Nap, Tunisian lunch at El Mida, Plateau walk.",
+    evening: "Botanical Garden + Gardens of Light, dinner at Boustan.",
+    food: [cities.montreal.food[1], cities.montreal.food[2]],
+    transport: "747 bus 1.25 = 24 h métro/bus pass",
   },
   {
     day: "Day 10",
     date: "Oct 10",
     city: "Montreal → Toronto",
     title: "Notre-Dame + overnight bus",
-    morning: "Notre-Dame Basilica.",
-    afternoon: "Mount Royal lookout, pack for the bus.",
+    morning: "Notre-Dame Basilica, Old Montreal, Pointe-à-Callière.",
+    afternoon: "Lunch at Palki, Mount Royal lookout.",
     evening: "18:20 FlixBus from Laval – Métro Cartier to Toronto (overnight).",
-    transport: "FlixBus Montreal → Toronto, $59.48 CAD",
+    food: [cities.montreal.food[3]],
+    transport: "FlixBus Montreal → Toronto, 9.48 CAD",
   },
   {
     day: "Day 11",
     date: "Oct 11",
     city: "Toronto & Niagara",
-    title: "Arrive Toronto, day trip to the Falls",
-    morning: "Arrive Union Station 05:05, breakfast, CN Tower.",
-    afternoon: "GO Train to Niagara Falls, Journey Behind the Falls + boat cruise.",
-    evening: "GO Train back to Toronto, dinner at Paramount Fine Foods (halal, Union Station), then to Pearson for the night bus.",
-    food: [cities.toronto.food[0]],
-    transport: "GO Train Toronto ↔ Niagara, ≈$22 CAD each way",
+    title: "Niagara Falls day trip, CN Tower at night",
+    morning: "Arrive Union 05:05, GO train + bus 07:45 → Niagara 10:15, Journey Behind the Falls.",
+    afternoon: "Boat cruise, lunch at Casablanca, GO train 16:02 → Union 18:24.",
+    evening: "Dinner at Paramount (Union Station), CN Tower, UP Express to Pearson for the 01:20 bus.",
+    food: [cities.toronto.food[4], cities.toronto.food[0]],
+    transport: "GO Train Toronto ↔ Niagara ≈2 each way · UP Express 2.35",
   },
   {
     day: "Day 12",
     date: "Oct 12",
-    city: "Toronto → Montreal",
-    title: "Overnight bus back, rest day",
-    morning: "01:20 FlixBus departs Pearson T1, arrives Montreal 11:00.",
-    afternoon: "Rest, laundry, light walk in Old Montreal. Oct 12 is Thanksgiving Monday — some shops and museums keep holiday hours.",
-    evening: "Free evening.",
-    transport: "FlixBus Toronto → Montreal, $77.48 CAD",
+    city: "Toronto → Montreal → Rome",
+    title: "Night bus back, fly home 19:25",
+    morning: "FlixBus arrives Laval 11:00, métro downtown.",
+    afternoon: "Lunch at Shawarmaz, 747 bus to YUL by 16:00 (Thanksgiving Monday).",
+    evening: "YUL 19:25 → Rome FCO 09:15 (+1).",
+    food: [cities.montreal.food[0]],
+    transport: "FlixBus Toronto → Montreal, 7.48 CAD · 747 bus 1.25",
   },
   {
     day: "Day 13",
     date: "Oct 13",
-    city: "Montreal",
-    title: "Departure",
-    morning: "Free morning.",
-    afternoon: "Flight home.",
+    city: "Rome → Tunis",
+    title: "Home",
+    morning: "Land Rome 09:15, connection.",
+    afternoon: "FCO 17:00 → TUN 17:20.",
   },
 ];
 

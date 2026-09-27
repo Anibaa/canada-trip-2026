@@ -17,6 +17,7 @@ export default async function TorontoPage() {
       intro="Arrive by overnight bus, CN Tower and the Distillery District, then a day trip to the Falls before the bus back to Montreal."
       activities={c.activities}
       food={c.food}
+      localFood={c.localFood}
       weather={weather}
       fetchedAt={fetchedAt}
     />

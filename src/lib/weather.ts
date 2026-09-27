@@ -13,7 +13,7 @@ const locations: Record<WeatherLoc, { name: string; lat: number; lon: number }> 
   niagara: { name: "Niagara Falls", lat: 43.0896, lon: -79.0849 },
 };
 
-// Where you are each day (Oct 11 is split between Toronto and the Falls).
+// Where you are each day in Canada (Oct 11 is split between Toronto and the Falls; Oct 13 is in transit home).
 const tripDays: Record<string, WeatherLoc[]> = {
   "2026-10-01": ["vancouver"],
   "2026-10-02": ["vancouver"],
@@ -27,7 +27,6 @@ const tripDays: Record<string, WeatherLoc[]> = {
   "2026-10-10": ["montreal"],
   "2026-10-11": ["toronto", "niagara"],
   "2026-10-12": ["montreal"],
-  "2026-10-13": ["montreal"],
 };
 
 export interface DayWeather {

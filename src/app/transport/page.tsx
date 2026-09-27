@@ -13,8 +13,8 @@ export default function TransportPage() {
         Every leg, distance &amp; price
       </h1>
       <p className="max-w-2xl text-lg leading-relaxed text-ink-soft">
-        The two FlixBus legs below are already booked (real confirmation, $140.95 USD
-        total). Flights are already in the calendar.
+        Every flight (Tunis → Frankfurt → Vancouver, Vancouver → Calgary → Montreal, Montreal → Rome →
+        Tunis) and both FlixBus legs ($140.95 USD total) are booked. Only the GO train to Niagara is left to buy.
       </p>
 
       <div className="mt-10 flex flex-col gap-4">

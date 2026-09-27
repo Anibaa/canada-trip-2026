@@ -47,9 +47,9 @@ export default function Home() {
             One loop, no backtracking
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-on-dark-soft">
-            Flights already booked get you west to east once. Overnight buses cover the
-            Toronto ↔ Niagara ↔ Montreal leg and double as lodging, so the route never
-            doubles back and needs no extra hotel night.
+            Booked flights carry you Tunis → Vancouver, then west to east overnight to Montreal,
+            and home via Rome. Overnight buses cover Montreal ↔ Toronto and double as lodging —
+            only two hotel stays needed: Vancouver (Oct 1–7) and Montreal (Oct 9).
           </p>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stops.map((s) => {

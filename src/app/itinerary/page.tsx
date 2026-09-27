@@ -14,7 +14,7 @@ export default async function ItineraryPage() {
       <p className="mb-2 text-sm font-bold uppercase tracking-widest text-teal">Day by day</p>
       <h1 className="mb-4 font-display text-4xl font-semibold sm:text-5xl">The itinerary</h1>
       <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-        13 days, one direction. Overnight buses on Oct 10 and Oct 12 double as lodging.
+        13 days, one direction. You only need hotels in Vancouver (Oct 1–7) and Montreal (Oct 9): the nights of Oct 8 and Oct 12 are flights, and Oct 10–11 are overnight buses.
       </p>
       <WeatherNote fetchedAt={fetchedAt} />
 

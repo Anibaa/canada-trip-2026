@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapLink } from "@/components/MapLink";
 import { WeatherChip, WeatherNote } from "@/components/Weather";
 import {
@@ -9,7 +10,9 @@ import {
   type Leg,
   type Stop,
 } from "@/lib/guide";
+import { getPhoto } from "@/lib/trip-data";
 import { getTripWeather } from "@/lib/weather";
+import { TodayMarker } from "@/components/TodayMarker";
 
 export const revalidate = 10800; // re-fetch the forecast every 3 h
 
@@ -30,6 +33,7 @@ function duration(m: string) {
 }
 
 function StopRow({ s }: { s: Stop }) {
+  const p = s.photo ? getPhoto(s.photo) : null;
   return (
     <li className="relative grid grid-cols-[4.5rem_1fr] gap-3 py-2 sm:grid-cols-[6rem_1fr]">
       <span className="tabular pt-0.5 text-sm font-bold text-ink">{s.time}</span>
@@ -49,8 +53,29 @@ function StopRow({ s }: { s: Stop }) {
             {s.best}
           </p>
         )}
+        {p && (
+          <figure className="relative mt-2 aspect-[16/9] w-full max-w-md overflow-hidden rounded-xl bg-panel">
+            <Image
+              src={p.src}
+              alt={p.caption ? `${s.place} — ${p.caption.toLowerCase()}` : s.place}
+              fill
+              sizes="(min-width: 640px) 448px, 85vw"
+              className="object-cover"
+            />
+            {p.caption && (
+              <span className="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-white">
+                {p.caption}
+              </span>
+            )}
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-2.5 pb-1 pt-4 text-right text-[10px] text-white/85">
+              <a href={p.source} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                Photo: {p.credit} · {p.license}
+              </a>
+            </figcaption>
+          </figure>
+        )}
         {s.mapQuery && (
-          <div className="mt-1">
+          <div className="mt-1.5">
             <MapLink query={s.mapQuery} label="Map" />
           </div>
         )}
@@ -107,12 +132,15 @@ export default async function GuidePage() {
         Flight times aren&apos;t listed here; plan the arrival and departure legs around your tickets.
       </p>
 
-      <nav className="mt-6 flex flex-wrap gap-2" aria-label="Jump to day">
+      <nav
+        className="sticky top-[57px] z-40 -mx-4 mt-6 flex gap-2 overflow-x-auto border-b border-line bg-bg/95 px-4 py-2 backdrop-blur [scrollbar-width:none] sm:-mx-6 sm:px-6"
+        aria-label="Jump to day"
+      >
         {guideDays.map((d) => (
           <a
             key={d.date}
             href={`#d-${d.date}`}
-            className="tabular rounded-full border border-line px-3 py-1 text-xs font-semibold text-ink-soft hover:bg-panel hover:text-ink"
+            className="tabular shrink-0 rounded-full border border-line px-3 py-1.5 text-xs font-semibold text-ink-soft hover:bg-panel hover:text-ink"
           >
             Oct {Number(d.date.slice(8))}
           </a>
@@ -140,7 +168,7 @@ export default async function GuidePage() {
             <section
               key={d.date}
               id={`d-${d.date}`}
-              className="scroll-mt-20 rounded-2xl border border-line bg-bg-raised p-5 sm:p-6"
+              className="scroll-mt-32 rounded-2xl border border-line bg-bg-raised p-5 sm:p-6"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h2 className="font-display text-xl font-semibold sm:text-2xl">
@@ -156,10 +184,12 @@ export default async function GuidePage() {
                 {(byDate[d.date] ?? []).map((w) => (
                   <WeatherChip key={w.place} w={w} showPlace={(byDate[d.date] ?? []).length > 1} />
                 ))}
-                <div className="flex flex-col justify-center gap-0.5 rounded-xl border border-line px-3 py-2 text-xs text-ink-soft">
-                  <span className="tabular">🌅 Sunrise {sun.sunrise}</span>
-                  <span className="tabular">🌇 Sunset {sun.sunset}</span>
-                </div>
+                {sun && (
+                  <div className="flex flex-col justify-center gap-0.5 rounded-xl border border-line px-3 py-2 text-xs text-ink-soft">
+                    <span className="tabular">🌅 Sunrise {sun.sunrise}</span>
+                    <span className="tabular">🌇 Sunset {sun.sunset}</span>
+                  </div>
+                )}
               </div>
 
               <ol className="mt-5">
@@ -181,6 +211,7 @@ export default async function GuidePage() {
       </div>
 
       <WeatherNote fetchedAt={fetchedAt} />
+      <TodayMarker />
     </div>
   );
 }
