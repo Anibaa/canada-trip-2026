@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fbfbf7;
+  --bg-raised: #ffffff;
+  --ink: #16233a;
+  --ink-soft: #4a5568;
+  --line: #e1e6e3;
+  --panel: #eef3f2;
+  --panel-dark: #16233a;
+  --panel-dark-2: #1c3350;
+  --teal: #2f8f8a;
+  --amber: #e0793d;
+  --gold: #f2a65a;
+  --on-dark: #fbfbf7;
+  --on-dark-soft: #b9c7ce;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a26;
+    --bg-raised: #152233;
+    --ink: #f2f4f1;
+    --ink-soft: #aebbc0;
+    --line: #25384a;
+    --panel: #152233;
+    --panel-dark: #0b1420;
+    --panel-dark-2: #111f30;
+    --teal: #4db3ac;
+    --amber: #f09154;
+    --gold: #f5b876;
+    --on-dark: #f2f4f1;
+    --on-dark-soft: #9fb0b8;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-panel: var(--panel);
+  --color-panel-dark: var(--panel-dark);
+  --color-panel-dark-2: var(--panel-dark-2);
+  --color-teal: var(--teal);
+  --color-amber: var(--amber);
+  --color-gold: var(--gold);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-soft: var(--on-dark-soft);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Public Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
