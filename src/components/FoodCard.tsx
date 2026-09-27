@@ -1,9 +1,11 @@
 import type { FoodSpot } from "@/lib/trip-data";
 import { MapLink } from "./MapLink";
+import { Photo } from "./Photo";
 
 export function FoodCard({ spot }: { spot: FoodSpot }) {
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border-l-[3px] border-teal bg-panel p-5">
+    <div className="flex flex-col gap-2 overflow-hidden rounded-2xl border-b-[3px] border-teal bg-panel p-5">
+      <Photo id={spot.photo} alt={spot.name} />
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-body text-base font-semibold">{spot.name}</h3>
         {spot.halal && (

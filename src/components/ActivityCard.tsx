@@ -1,10 +1,12 @@
 import type { Activity } from "@/lib/trip-data";
 import { PriceTag } from "./PriceTag";
 import { MapLink } from "./MapLink";
+import { Photo } from "./Photo";
 
 export function ActivityCard({ activity }: { activity: Activity }) {
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border border-line bg-bg-raised p-5">
+    <div className="flex flex-col gap-2 overflow-hidden rounded-2xl border border-line bg-bg-raised p-5">
+      <Photo id={activity.photo} alt={activity.name} />
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-body text-lg font-semibold">{activity.name}</h3>
         <PriceTag cad={activity.priceCad} />

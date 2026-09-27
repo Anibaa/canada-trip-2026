@@ -1,4 +1,21 @@
 // Central trip data: FX rate is approximate and fluctuates — shown as a live-ish reference, not a guarantee.
+import photos from "./photos.json";
+
+// Free-licensed Wikimedia Commons images, fetched into public/places/ with their attribution.
+export type PhotoId = keyof typeof photos;
+export interface Photo {
+  src: string;
+  width: number;
+  height: number;
+  credit: string;
+  license: string;
+  source: string;
+  caption?: string;
+}
+export function getPhoto(id: PhotoId): Photo {
+  return photos[id];
+}
+
 export const FX = {
   cadToTnd: 2.05, // approx, Sept 2026 — 1 CAD ≈ 2.05 TND
 };
@@ -17,6 +34,7 @@ export interface FoodSpot {
   priceTnd: string;
   note: string;
   mapQuery: string;
+  photo: PhotoId;
 }
 
 export interface Activity {
@@ -26,6 +44,7 @@ export interface Activity {
   tier: PriceTier;
   durationHrs: number;
   mapQuery: string;
+  photo: PhotoId;
 }
 
 export interface TransportLeg {
@@ -67,6 +86,7 @@ export const cities = {
         tier: "free",
         durationHrs: 3,
         mapQuery: "Stanley Park Seawall Vancouver",
+        photo: "stanley-park-seawall",
       },
       {
         name: "Gastown & Granville Island",
@@ -75,6 +95,61 @@ export const cities = {
         tier: "free",
         durationHrs: 3,
         mapQuery: "Granville Island Public Market Vancouver",
+        photo: "granville-island",
+      },
+      {
+        name: "English Bay Beach at sunset",
+        description: "West End beach with the Inukshuk and the best sunset spot downtown — pairs with the Seawall.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 1,
+        mapQuery: "English Bay Beach Vancouver",
+        photo: "english-bay",
+      },
+      {
+        name: "Lynn Canyon Park suspension bridge",
+        description: "The free alternative to Capilano: a suspension bridge 50 m over a canyon, plus forest trails and swimming holes.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 3,
+        mapQuery: "Lynn Canyon Park Suspension Bridge North Vancouver",
+        photo: "lynn-canyon",
+      },
+      {
+        name: "Deep Cove & Quarry Rock hike",
+        description: "Short forest hike (~3.8 km return) to a granite lookout over Indian Arm. Reachable by bus from downtown.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 3,
+        mapQuery: "Quarry Rock Trail Deep Cove North Vancouver",
+        photo: "deep-cove",
+      },
+      {
+        name: "Queen Elizabeth Park & Bloedel Conservatory",
+        description: "The city's highest point, with gardens and skyline views; the domed conservatory has 100+ free-flying birds.",
+        priceCad: 9,
+        tier: "budget",
+        durationHrs: 2,
+        mapQuery: "Bloedel Conservatory Queen Elizabeth Park Vancouver",
+        photo: "queen-elizabeth-park",
+      },
+      {
+        name: "Dr. Sun Yat-Sen Classical Chinese Garden",
+        description: "Ming-dynasty-style scholar's garden in Chinatown — quiet, compact and beautiful in the rain.",
+        priceCad: 16,
+        tier: "budget",
+        durationHrs: 1,
+        mapQuery: "Dr. Sun Yat-Sen Classical Chinese Garden Vancouver",
+        photo: "sun-yat-sen-garden",
+      },
+      {
+        name: "Museum of Anthropology at UBC",
+        description: "Northwest Coast First Nations totem poles and carvings in an Arthur Erickson glass hall.",
+        priceCad: 25,
+        tier: "budget",
+        durationHrs: 2,
+        mapQuery: "Museum of Anthropology at UBC Vancouver",
+        photo: "moa-ubc",
       },
       {
         name: "Vancouver Aquarium",
@@ -83,6 +158,7 @@ export const cities = {
         tier: "budget",
         durationHrs: 2,
         mapQuery: "Vancouver Aquarium",
+        photo: "vancouver-aquarium",
       },
       {
         name: "Capilano Suspension Bridge + Grouse Mountain combo",
@@ -91,6 +167,7 @@ export const cities = {
         tier: "splurge",
         durationHrs: 6,
         mapQuery: "Capilano Suspension Bridge Park",
+        photo: "capilano",
       },
     ] as Activity[],
     food: [
@@ -100,8 +177,9 @@ export const cities = {
         halal: true,
         priceCad: "$15–25 CAD/person",
         priceTnd: "≈45–75 TND",
-        note: "Halal Lebanese chain, several downtown/Gastown locations — mezze, shawarma wraps.",
+        note: "Lebanese spot where all meats are halal — mezze, falafel, shawarma plates. Locations in Gastown (207 W Hastings) and Yaletown (508 Davie).",
         mapQuery: "Nuba 508 Davie St Vancouver",
+        photo: "dish-falafel",
       },
       {
         name: "Moltaqa",
@@ -109,8 +187,19 @@ export const cities = {
         halal: true,
         priceCad: "$25–40 CAD/person",
         priceTnd: "≈75–120 TND",
-        note: "Halal Moroccan restaurant in Yaletown, tagines and couscous.",
-        mapQuery: "Moltaqa Restaurant Yaletown Vancouver",
+        note: "Michelin-recommended, fully halal Moroccan in Yaletown (1002 Mainland St) — tagines and couscous. Oud music Fri & Sun; book ahead.",
+        mapQuery: "Moltaqa Moroccan Restaurant 1002 Mainland St Vancouver",
+        photo: "dish-tajine",
+      },
+      {
+        name: "Manoush'eh",
+        type: "Levantine bakery",
+        halal: true,
+        priceCad: "$10–18 CAD/person",
+        priceTnd: "≈30–55 TND",
+        note: "Certified-halal, family-run: stone-baked za'atar & cheese manousheh, knafeh, Arabic breakfast. 620 Davie St. Closed Wednesdays.",
+        mapQuery: "Manoush'eh 620 Davie St Vancouver",
+        photo: "dish-manakish",
       },
     ] as FoodSpot[],
   },
@@ -127,6 +216,7 @@ export const cities = {
         tier: "moderate",
         durationHrs: 2,
         mapQuery: "CN Tower Toronto",
+        photo: "cn-tower",
       },
       {
         name: "Distillery District",
@@ -135,6 +225,52 @@ export const cities = {
         tier: "free",
         durationHrs: 2,
         mapQuery: "Distillery District Toronto",
+        photo: "distillery-district",
+      },
+      {
+        name: "Kensington Market",
+        description: "Colourful, eclectic neighbourhood of vintage shops, street art and food stalls next to Chinatown.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 2,
+        mapQuery: "Kensington Market Toronto",
+        photo: "kensington-market",
+      },
+      {
+        name: "Toronto Islands ferry",
+        description: "15-min ferry from the foot of Bay St — the best skyline view in the city, plus beaches and bike paths.",
+        priceCad: 9,
+        tier: "budget",
+        durationHrs: 3,
+        mapQuery: "Jack Layton Ferry Terminal Toronto",
+        photo: "toronto-islands",
+      },
+      {
+        name: "Royal Ontario Museum",
+        description: "Dinosaurs, world cultures and the crystal-shaped Michael Lee-Chin wing.",
+        priceCad: 26,
+        tier: "budget",
+        durationHrs: 3,
+        mapQuery: "Royal Ontario Museum Toronto",
+        photo: "rom",
+      },
+      {
+        name: "Casa Loma",
+        description: "Early-1900s Gothic Revival castle with towers, secret passages and gardens.",
+        priceCad: 45,
+        tier: "moderate",
+        durationHrs: 2,
+        mapQuery: "Casa Loma Toronto",
+        photo: "casa-loma",
+      },
+      {
+        name: "Ripley's Aquarium of Canada",
+        description: "Walk-through shark tunnel at the foot of the CN Tower — easy to combine with it.",
+        priceCad: 49,
+        tier: "moderate",
+        durationHrs: 2,
+        mapQuery: "Ripley's Aquarium of Canada Toronto",
+        photo: "ripleys-aquarium",
       },
       {
         name: "Horseshoe Falls viewpoint",
@@ -143,14 +279,25 @@ export const cities = {
         tier: "free",
         durationHrs: 1,
         mapQuery: "Table Rock Niagara Falls",
+        photo: "horseshoe-falls",
       },
       {
-        name: "Journey Behind the Falls + Hornblower boat cruise",
+        name: "Journey Behind the Falls + Niagara City Cruises boat",
         description: "Tunnels behind the curtain of water, plus a boat ride right up to the base.",
         priceCad: 65,
         tier: "moderate",
         durationHrs: 3,
         mapQuery: "Journey Behind the Falls Niagara",
+        photo: "niagara-boat",
+      },
+      {
+        name: "Whirlpool Aero Car",
+        description: "Antique cable car suspended over the Niagara Whirlpool, 4.5 km downstream of the falls.",
+        priceCad: 22,
+        tier: "budget",
+        durationHrs: 1,
+        mapQuery: "Whirlpool Aero Car Niagara Falls",
+        photo: "whirlpool-aero-car",
       },
       {
         name: "Skylon Tower (optional)",
@@ -159,6 +306,16 @@ export const cities = {
         tier: "budget",
         durationHrs: 1,
         mapQuery: "Skylon Tower Niagara Falls",
+        photo: "skylon-tower",
+      },
+      {
+        name: "Niagara-on-the-Lake",
+        description: "Preserved 19th-century town ~25 km north along the Niagara Parkway. Needs a car or tour — only if time allows.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 3,
+        mapQuery: "Queen Street Niagara-on-the-Lake",
+        photo: "niagara-on-the-lake",
       },
     ] as Activity[],
     food: [
@@ -168,8 +325,9 @@ export const cities = {
         halal: true,
         priceCad: "$12–20 CAD/person",
         priceTnd: "≈35–60 TND",
-        note: "HMA-certified halal chain, convenient location right at Union Station before/after the bus.",
+        note: "HMA-certified halal, in the Union Station food court (65 Front St W) — right where the bus arrives. Open 10:00–21:00.",
         mapQuery: "Paramount Fine Foods Union Station Toronto",
+        photo: "dish-hummus",
       },
       {
         name: "Paramount Fine Foods — First Canadian Place",
@@ -179,6 +337,37 @@ export const cities = {
         priceTnd: "≈35–60 TND",
         note: "Downtown financial district location, HMA-certified.",
         mapQuery: "Paramount Fine Foods First Canadian Place Toronto",
+        photo: "dish-shish-taouk",
+      },
+      {
+        name: "Naan Kabob",
+        type: "Afghan",
+        halal: true,
+        priceCad: "$15–25 CAD/person",
+        priceTnd: "≈45–75 TND",
+        note: "100% halal, family-run Afghan: kebabs, Kabuli palaw, warm naan. 691 Yonge St, near Bloor–Yonge station.",
+        mapQuery: "Naan Kabob 691 Yonge St Toronto",
+        photo: "dish-kabuli-palaw",
+      },
+      {
+        name: "Karahi Boys — Queen West",
+        type: "Pakistani",
+        halal: true,
+        priceCad: "$18–30 CAD/person",
+        priceTnd: "≈55–90 TND",
+        note: "Fully halal; famous for chicken karahi and charcoal BBQ. 741 Queen St W.",
+        mapQuery: "Karahi Boys 741 Queen St W Toronto",
+        photo: "dish-karahi",
+      },
+      {
+        name: "Casablanca — Niagara Falls",
+        type: "Middle Eastern & grill",
+        halal: true,
+        priceCad: "$15–25 CAD/person",
+        priceTnd: "≈45–75 TND",
+        note: "Halal shish kebab, shawarma and pizza a short walk from Clifton Hill (5930 Victoria Ave) — lunch on the Niagara day.",
+        mapQuery: "Casablanca Halal Restaurant 5930 Victoria Ave Niagara Falls",
+        photo: "dish-shish-kebab",
       },
     ] as FoodSpot[],
   },
@@ -195,6 +384,7 @@ export const cities = {
         tier: "budget",
         durationHrs: 1,
         mapQuery: "Notre-Dame Basilica Montreal",
+        photo: "notre-dame",
       },
       {
         name: "Old Montreal & the Old Port",
@@ -203,14 +393,79 @@ export const cities = {
         tier: "free",
         durationHrs: 3,
         mapQuery: "Old Montreal",
+        photo: "old-montreal",
       },
       {
         name: "Mount Royal lookout",
-        description: "Panoramic city view from the park Frederick Law Olmsted designed after Central Park.",
+        description: "Panoramic city view from the Kondiaronk Belvedere, in the park Frederick Law Olmsted designed after Central Park.",
         priceCad: "Free",
         tier: "free",
         durationHrs: 2,
-        mapQuery: "Mount Royal Lookout Montreal",
+        mapQuery: "Kondiaronk Belvedere Mount Royal Montreal",
+        photo: "mount-royal",
+      },
+      {
+        name: "Saint Joseph's Oratory",
+        description: "Canada's largest church, on the west slope of Mount Royal — 283 steps up to a huge domed basilica.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 1.5,
+        mapQuery: "Saint Joseph's Oratory Montreal",
+        photo: "st-joseph-oratory",
+      },
+      {
+        name: "Plateau Mont-Royal & its outdoor staircases",
+        description: "Colourful row houses, Saint-Laurent Boulevard murals and cafés — Montreal's most walkable neighbourhood.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 2,
+        mapQuery: "Plateau Mont-Royal Montreal",
+        photo: "plateau",
+      },
+      {
+        name: "Jean-Talon Market",
+        description: "Huge open-air market in Little Italy — October is peak harvest season (apples, pumpkins, maple).",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 1.5,
+        mapQuery: "Marché Jean-Talon Montreal",
+        photo: "jean-talon",
+      },
+      {
+        name: "Lachine Canal path",
+        description: "Flat 14 km bike/walk path from the Old Port past Atwater Market. BIXI bikes available along the way.",
+        priceCad: "Free",
+        tier: "free",
+        durationHrs: 2,
+        mapQuery: "Lachine Canal National Historic Site Montreal",
+        photo: "lachine-canal",
+      },
+      {
+        name: "Montreal Botanical Garden",
+        description: "One of the world's largest botanical gardens; in autumn the Chinese Garden hosts the lantern-lit Gardens of Light.",
+        priceCad: 25,
+        tier: "budget",
+        durationHrs: 3,
+        mapQuery: "Montreal Botanical Garden",
+        photo: "botanical-garden",
+      },
+      {
+        name: "Biodôme",
+        description: "Four ecosystems under one roof in the old Olympic velodrome — next door to the Botanical Garden.",
+        priceCad: 25,
+        tier: "budget",
+        durationHrs: 2,
+        mapQuery: "Biodôme de Montréal",
+        photo: "biodome",
+      },
+      {
+        name: "Pointe-à-Callière museum",
+        description: "Archaeology museum built over Montreal's birthplace — walk through the original foundations underground.",
+        priceCad: 27,
+        tier: "budget",
+        durationHrs: 2,
+        mapQuery: "Pointe-à-Callière Montreal",
+        photo: "pointe-a-calliere",
       },
     ] as Activity[],
     food: [
@@ -220,17 +475,39 @@ export const cities = {
         halal: true,
         priceCad: "$10–18 CAD/person",
         priceTnd: "≈30–55 TND",
-        note: "Popular shawarma spot on Saint-Catherine St W, generous portions.",
+        note: "Fully halal-certified shawarma, generous portions. 1340 Saint-Catherine St W, downtown.",
         mapQuery: "Shawarmaz 1340 Saint-Catherine St W Montreal",
+        photo: "dish-shawarma",
       },
       {
-        name: "Byblos / Old Montreal halal grills",
-        type: "Middle Eastern",
+        name: "El Mida",
+        type: "Tunisian",
         halal: true,
-        priceCad: "$15–25 CAD/person",
-        priceTnd: "≈45–75 TND",
-        note: "Several halal-friendly grill spots around Old Montreal — check current HMA/Zabihah listing before you go.",
-        mapQuery: "halal restaurants Old Montreal",
+        priceCad: "$18–30 CAD/person",
+        priceTnd: "≈55–90 TND",
+        note: "A taste of home: halal Tunisian — kafteji, ojja, lablabi, couscous. The menu rotates every two weeks. 3485 Av. du Parc.",
+        mapQuery: "El Mida 3485 Avenue du Parc Montreal",
+        photo: "dish-lablabi",
+      },
+      {
+        name: "Boustan — Crescent St",
+        type: "Lebanese",
+        halal: true,
+        priceCad: "$10–18 CAD/person",
+        priceTnd: "≈30–55 TND",
+        note: "Montreal institution since 1986, everything halal — shawarma pitas and famous garlic potatoes. 2020 Crescent St, open very late.",
+        mapQuery: "Boustan 2020 Rue Crescent Montreal",
+        photo: "dish-toum",
+      },
+      {
+        name: "Restaurant Palki",
+        type: "Indian",
+        halal: true,
+        priceCad: "$20–35 CAD/person",
+        priceTnd: "≈60–105 TND",
+        note: "Halal Indian in the middle of Old Montreal (56 Notre-Dame St W) — steps from the Basilica.",
+        mapQuery: "Restaurant Palki 56 Rue Notre-Dame O Montreal",
+        photo: "dish-butter-chicken",
       },
     ] as FoodSpot[],
   },
@@ -381,7 +658,7 @@ export const dayPlans: DayPlan[] = [
     city: "Toronto → Montreal",
     title: "Overnight bus back, rest day",
     morning: "01:20 FlixBus departs Pearson T1, arrives Montreal 11:00.",
-    afternoon: "Rest, laundry, light walk in Old Montreal.",
+    afternoon: "Rest, laundry, light walk in Old Montreal. Oct 12 is Thanksgiving Monday — some shops and museums keep holiday hours.",
     evening: "Free evening.",
     transport: "FlixBus Toronto → Montreal, $77.48 CAD",
   },

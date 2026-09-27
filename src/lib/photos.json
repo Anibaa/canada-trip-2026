@@ -1,0 +1,366 @@
+{
+  "stanley-park-seawall": {
+    "src": "/places/stanley-park-seawall.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Bobanny",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Seawall2.jpg"
+  },
+  "granville-island": {
+    "src": "/places/granville-island.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Joe Mabel",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Granville_Island_view_from_Granville_Bridge_in_2010.jpg"
+  },
+  "vancouver-aquarium": {
+    "src": "/places/vancouver-aquarium.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Iiii I I I",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vancouver_Aquarium_entrance_(2026).jpg"
+  },
+  "capilano": {
+    "src": "/places/capilano.jpg",
+    "width": 800,
+    "height": 450,
+    "credit": "Markus Säynevirta",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Capilano_Suspension_Bridge,_Vancouver,_Canada_(July_2016)_1.jpg"
+  },
+  "lynn-canyon": {
+    "src": "/places/lynn-canyon.jpg",
+    "width": 800,
+    "height": 1200,
+    "credit": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Parque_del_ca%C3%B1%C3%B3n_Lynn,_Vancouver,_Canad%C3%A1,_2017-08-14,_DD_11.jpg"
+  },
+  "moa-ubc": {
+    "src": "/places/moa-ubc.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Xicotencatl",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Museum_of_Anthropology_UBC_01.jpg"
+  },
+  "english-bay": {
+    "src": "/places/english-bay.jpg",
+    "width": 800,
+    "height": 599,
+    "credit": "Wikimedia Commons user",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:English_Bay,_Vancouver,_BC.jpg"
+  },
+  "sun-yat-sen-garden": {
+    "src": "/places/sun-yat-sen-garden.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Ɱ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dr._Sun_Yat-Sen_Classical_Chinese_Garden_07.jpg"
+  },
+  "deep-cove": {
+    "src": "/places/deep-cove.jpg",
+    "width": 800,
+    "height": 500,
+    "credit": "LilDice",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Deep_cove2560.jpg"
+  },
+  "cn-tower": {
+    "src": "/places/cn-tower.jpg",
+    "width": 960,
+    "height": 720,
+    "credit": "Jchmrt",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toronto-CN-tower-and-Canadian-flag-skyline.jpg"
+  },
+  "distillery-district": {
+    "src": "/places/distillery-district.jpg",
+    "width": 800,
+    "height": 674,
+    "credit": "Geo Swan stitched by Marku1988",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gooderham.jpg"
+  },
+  "horseshoe-falls": {
+    "src": "/places/horseshoe-falls.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Thomaswm",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Canadian_Falls_(Horseshoe_Falls)_and_the_Hornblower_Niagara_Cruises_boat;_Niagara_Falls.JPG"
+  },
+  "skylon-tower": {
+    "src": "/places/skylon-tower.jpg",
+    "width": 800,
+    "height": 1200,
+    "credit": "Ingelbert Lievaart II",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ilievaart-falls0805_7584smaller.jpg"
+  },
+  "rom": {
+    "src": "/places/rom.jpg",
+    "width": 800,
+    "height": 490,
+    "credit": "Maksim Sokolov (Maxergon)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Royal_Ontario_Museum_in_Fall_2021.jpg"
+  },
+  "kensington-market": {
+    "src": "/places/kensington-market.jpg",
+    "width": 800,
+    "height": 450,
+    "credit": "Arild Vågen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kensington_Market_Toronto_August_2017_01.jpg"
+  },
+  "toronto-islands": {
+    "src": "/places/toronto-islands.jpg",
+    "width": 800,
+    "height": 800,
+    "credit": "JK Liu",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toronto_Islands_2025-05-08.jpg"
+  },
+  "ripleys-aquarium": {
+    "src": "/places/ripleys-aquarium.jpg",
+    "width": 800,
+    "height": 551,
+    "credit": "EuroCarGT",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ripley%27s_Aquarium_of_Canada,_Toronto,_Ontario.jpg"
+  },
+  "casa-loma": {
+    "src": "/places/casa-loma.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Priscilla Jordão from São Paulo, Brasil",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Exterior_of_Casa_Loma,_June_2012.jpg"
+  },
+  "whirlpool-aero-car": {
+    "src": "/places/whirlpool-aero-car.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Ad Meskens",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Niagara_Whirlpool_with_aerocar.JPG"
+  },
+  "niagara-on-the-lake": {
+    "src": "/places/niagara-on-the-lake.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Paste",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Niagara_on_the_lake.jpg"
+  },
+  "notre-dame": {
+    "src": "/places/notre-dame.jpg",
+    "width": 800,
+    "height": 606,
+    "credit": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_Notre-Dame,_Montreal,_Canad%C3%A1,_2017-08-11,_DD_26-28_HDR.jpg"
+  },
+  "old-montreal": {
+    "src": "/places/old-montreal.jpg",
+    "width": 667,
+    "height": 500,
+    "credit": "User Gjm130 on en.wikipedia",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Old_Port_of_Montreal_(French-_Vieux-Port_de_Montr%C3%A9al).jpg"
+  },
+  "mount-royal": {
+    "src": "/places/mount-royal.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Thomas Ledl",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mount_Royal_Chalet,_Montreal_2.jpg"
+  },
+  "jean-talon": {
+    "src": "/places/jean-talon.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Brandon Moore (Raskuly)",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:March%C3%A9_Jean-Talon_05-11-2024.jpg"
+  },
+  "botanical-garden": {
+    "src": "/places/botanical-garden.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "GarrettRock",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Botanical_Gardens_H.JPG"
+  },
+  "biodome": {
+    "src": "/places/biodome.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "PtitLutin",
+    "license": "CC BY-SA 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Biodome_Montreal.jpg"
+  },
+  "st-joseph-oratory": {
+    "src": "/places/st-joseph-oratory.jpg",
+    "width": 800,
+    "height": 960,
+    "credit": "Paolo Costa Baldi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oratoire_Saint-Joseph_du_Mont-Royal_-_Montreal.jpg"
+  },
+  "plateau": {
+    "src": "/places/plateau.jpg",
+    "width": 800,
+    "height": 548,
+    "credit": "Chicoutimi",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Plateau_Mont-Royal.jpg"
+  },
+  "pointe-a-calliere": {
+    "src": "/places/pointe-a-calliere.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "Jeangagnon",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pointe-a-Calliere_02.jpg"
+  },
+  "lachine-canal": {
+    "src": "/places/lachine-canal.jpg",
+    "width": 960,
+    "height": 640,
+    "credit": "Guilhem Vellut from Annecy, France",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Canal_de_Lachine_@_Montr%C3%A9al_(29876056864).jpg"
+  },
+  "dish-falafel": {
+    "src": "/places/dish-falafel.jpg",
+    "width": 800,
+    "height": 450,
+    "credit": "Popo le Chien",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Falafels_2.jpg",
+    "caption": "Dish photo: falafel"
+  },
+  "dish-tajine": {
+    "src": "/places/dish-tajine.jpg",
+    "width": 737,
+    "height": 800,
+    "credit": "BBouchra00",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tajine-marocain-un-plat-varie-et-sain_(cropped).jpg",
+    "caption": "Dish photo: tagine"
+  },
+  "dish-manakish": {
+    "src": "/places/dish-manakish.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Elie.ghob",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zaatar_Mankousheh.jpg",
+    "caption": "Dish photo: manakish"
+  },
+  "dish-hummus": {
+    "src": "/places/dish-hummus.jpg",
+    "width": 800,
+    "height": 450,
+    "credit": "Beyrouthhh at English Wikipedia",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lebanese_style_hummus.jpg",
+    "caption": "Dish photo: hummus"
+  },
+  "dish-shish-taouk": {
+    "src": "/places/dish-shish-taouk.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Garrett Ziegler",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tavuk_%C5%9Ei%C5%9F.jpg",
+    "caption": "Dish photo: shish taouk"
+  },
+  "dish-kabuli-palaw": {
+    "src": "/places/dish-kabuli-palaw.jpg",
+    "width": 584,
+    "height": 438,
+    "credit": "Jost Wagner",
+    "license": "CC BY-SA 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Afghan_Palo.jpg",
+    "caption": "Dish photo: Kabuli palaw"
+  },
+  "dish-shish-kebab": {
+    "src": "/places/dish-shish-kebab.jpg",
+    "width": 800,
+    "height": 600,
+    "credit": "E4024",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%C5%9Ei%C5%9F_kebap_and_pilav.jpg",
+    "caption": "Dish photo: shish kebab"
+  },
+  "dish-shawarma": {
+    "src": "/places/dish-shawarma.jpg",
+    "width": 800,
+    "height": 1047,
+    "credit": "Vis M",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shawarma_2.jpg",
+    "caption": "Dish photo: shawarma"
+  },
+  "dish-toum": {
+    "src": "/places/dish-toum.jpg",
+    "width": 388,
+    "height": 253,
+    "credit": "Charbel",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toum.jpg",
+    "caption": "Dish photo: toum garlic sauce"
+  },
+  "dish-lablabi": {
+    "src": "/places/dish-lablabi.jpg",
+    "width": 800,
+    "height": 883,
+    "credit": "Habib M'henni",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bol_de_Leblabi_de_Tunisie,_21_mars_2017.jpg",
+    "caption": "Dish photo: lablabi"
+  },
+  "dish-butter-chicken": {
+    "src": "/places/dish-butter-chicken.jpg",
+    "width": 800,
+    "height": 1065,
+    "credit": "Yuvraj Singh 97",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Butter_Chicken_%26_Butter_Naan_-_Home_-_Chandigarh_-_India_-_0006.jpg",
+    "caption": "Dish photo: butter chicken"
+  },
+  "queen-elizabeth-park": {
+    "src": "/places/queen-elizabeth-park.jpg",
+    "width": 800,
+    "height": 533,
+    "credit": "Sporkist/Taz",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Bloedel_Conservatory.jpg"
+  },
+  "niagara-boat": {
+    "src": "/places/niagara-boat.jpg",
+    "width": 750,
+    "height": 463,
+    "credit": "Bona1858",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Maid_of_the_Mist_8_1_20.jpg"
+  },
+  "dish-karahi": {
+    "src": "/places/dish-karahi.jpg",
+    "width": 800,
+    "height": 451,
+    "credit": "Miansari66",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Punjabi_Chicken_Karahi.JPG",
+    "caption": "Dish photo: chicken karahi"
+  }
+}

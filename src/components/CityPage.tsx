@@ -21,6 +21,11 @@ export function CityPage({
       <h1 className="mb-4 font-display text-4xl font-semibold sm:text-5xl">{name}</h1>
       <p className="max-w-2xl text-lg leading-relaxed text-ink-soft">{intro}</p>
 
+      <p className="mt-4 text-sm text-ink-soft">
+        {activities.length} things to do · {food.length} halal spots. Prices are approximate 2026 adult
+        rates — check the official site before you go.
+      </p>
+
       <h2 className="mb-4 mt-12 font-display text-2xl font-semibold">Things to do</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {activities.map((a) => (
@@ -29,7 +34,7 @@ export function CityPage({
       </div>
 
       <h2 className="mb-4 mt-12 font-display text-2xl font-semibold">Halal food nearby</h2>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {food.map((f) => (
           <FoodCard key={f.name} spot={f} />
         ))}
