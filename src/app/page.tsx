@@ -60,6 +60,17 @@ function PrayerBlock({ date }: { date: string }) {
   );
 }
 
+// "Vancouver time (UTC−7) · Montreal +3 h · 🇹🇳 Tunisia +8 h"
+function zoneLine(z: Zone) {
+  const signed = (h: number) => (h > 0 ? `+${h} h` : `−${-h} h`);
+  const here = zones[z];
+  const parts = [`Times are ${here.label} time (${here.utc})`];
+  if (z === "vancouver") parts.push(`Montreal ${signed(zones.vancouver.tunisAhead - zones.eastern.tunisAhead)}`);
+  if (z === "eastern") parts.push(`Vancouver ${signed(zones.eastern.tunisAhead - zones.vancouver.tunisAhead)}`);
+  if (z !== "tunis") parts.push(`🇹🇳 Tunisia ${signed(here.tunisAhead)}`);
+  return parts.join(" · ");
+}
+
 function dayLabel(date: string) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-GB", {
     weekday: "long",
@@ -214,12 +225,7 @@ export default async function GuidePage() {
                 </span>
               </div>
               <p className="mt-1 text-base font-semibold text-teal">{d.title}</p>
-              <p className="mt-1 text-xs text-ink-soft">
-                🕐 Times in {zones[d.zone].label} time ({zones[d.zone].utc}) ·{" "}
-                {zones[d.zone].tunisAhead > 0
-                  ? `Tunisia is ${zones[d.zone].tunisAhead} h ahead`
-                  : `Tunisia is ${-zones[d.zone].tunisAhead} h behind`}
-              </p>
+              <p className="mt-1 text-xs text-ink-soft">🕐 {zoneLine(d.zone)}</p>
 
               <div className="mt-3 flex flex-wrap items-stretch gap-2">
                 {(byDate[d.date] ?? []).map((w) => (

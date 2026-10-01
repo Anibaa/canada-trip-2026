@@ -14,7 +14,7 @@ export default async function VancouverPage() {
     <CityPage
       name={c.name}
       dates={`Oct 1 – 8 · Stop 1`}
-      intro="Stanley Park, Gastown, Granville Island — then the IASAM event Oct 4–8 and the 19:30 flight east on Oct 8. Free evenings for the harbour and the beaches."
+      intro="Base: the Vancouver Harbourfront Hotel (1133 W Hastings St), which also hosts the IAS Annual Meeting Oct 4–8. Granville Island and the North Shore before it, harbour and beach evenings during it, then the 19:30 flight east on Oct 8."
       activities={c.activities}
       food={c.food}
       localFood={c.localFood}
