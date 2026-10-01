@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 828, 1080],
     imageSizes: [256, 384],
   },
+  // The day guide is now the home page; keep old links (and #d-… day anchors) working.
+  async redirects() {
+    return [{ source: "/guide", destination: "/", permanent: false }];
+  },
 };
 
 export default nextConfig;

@@ -1,6 +1,7 @@
 // Detailed day-by-day guide: timed stops with the best time to visit, and the transit leg between
 // each stop (recommended line, time, fare, taxi fallback, Google Maps directions).
 // Fares/hours checked Sept 2026 — approximate, confirm the week before.
+import prayers from "./prayers.json";
 import sun from "./sun.json";
 import type { PhotoId } from "./trip-data";
 
@@ -40,6 +41,7 @@ export interface Stop {
   mapQuery?: string;
   food?: boolean;
   photo?: PhotoId;
+  zone?: Zone; // when the stop is in a different time zone than the day
 }
 
 export interface Leg {
@@ -57,10 +59,82 @@ export interface Leg {
 
 export type SunCity = keyof typeof sun.cities;
 
+// Time zones in October 2026: Canada, Germany and Italy are still on summer time; Tunisia is UTC+1 all year.
+export type Zone = "vancouver" | "calgary" | "eastern" | "frankfurt" | "rome" | "tunis";
+export const zones: Record<Zone, { label: string; utc: string; tunisAhead: number; iana: string }> = {
+  vancouver: { label: "Vancouver", utc: "UTC−7", tunisAhead: 8, iana: "America/Vancouver" },
+  calgary: { label: "Calgary", utc: "UTC−6", tunisAhead: 7, iana: "America/Edmonton" },
+  eastern: { label: "Montreal & Toronto", utc: "UTC−4", tunisAhead: 5, iana: "America/Toronto" },
+  frankfurt: { label: "Frankfurt", utc: "UTC+2", tunisAhead: -1, iana: "Europe/Berlin" },
+  rome: { label: "Rome", utc: "UTC+2", tunisAhead: -1, iana: "Europe/Rome" },
+  tunis: { label: "Tunis", utc: "UTC+1", tunisAhead: 0, iana: "Africa/Tunis" },
+};
+
+// "17:15" in Vancouver → "01:15 +1" in Tunis. Labels like "Morning" return null.
+export function tunisTime(time: string, zone: Zone): string | null {
+  const m = time.match(/^(\d{2}):(\d{2})$/);
+  if (!m || zone === "tunis") return null;
+  const mins = Number(m[1]) * 60 + Number(m[2]) + zones[zone].tunisAhead * 60;
+  const dayShift = Math.floor(mins / 1440);
+  const t = ((mins % 1440) + 1440) % 1440;
+  const hhmm = `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
+  return hhmm + (dayShift > 0 ? " +1" : dayShift < 0 ? " −1" : "");
+}
+
+export interface Mosque {
+  name: string;
+  address: string;
+  note: string;
+  mapQuery: string;
+}
+
+const mosques: Record<string, Mosque> = {
+  fra: { name: "Frankfurt Airport prayer rooms", address: "Terminal 1 — follow the prayer-room signs or ask at an info desk", note: "Plenty of time during the 8-hour connection.", mapQuery: "Frankfurt Airport Terminal 1" },
+  yvr: { name: "YVR multi-faith prayer room", address: "Vancouver Airport, Pier D upper lounge", note: "Has a washing station.", mapQuery: "Vancouver International Airport" },
+  jamia: { name: "Al-Masjid Al-Jamia", address: "655 W 8th Ave, Vancouver", note: "Vancouver's oldest mosque: all five prayers and Jumu'ah, open daily. Canada Line → Broadway–City Hall, ~5-min walk.", mapQuery: "Al Masjid Al Jamia 655 W 8th Ave Vancouver" },
+  arRahman: { name: "Masjid Ar-Rahman", address: "1398 W 15th St, North Vancouver", note: "Closest mosque on the North Shore — about 10 min by taxi from Capilano.", mapQuery: "Masjid Ar-Rahman 1398 W 15th St North Vancouver" },
+  yul: { name: "YUL multi-faith prayer room", address: "Montréal–Trudeau, public area behind the Java U café", note: "Prayer mats available.", mapQuery: "Montréal-Trudeau International Airport" },
+  madinah: { name: "Al-Madinah Centre", address: "1260 Rue Mackay, Montreal", note: "Downtown, a few minutes from Guy-Concordia métro, Shawarmaz and Boustan.", mapQuery: "Al-Madinah Center 1260 Rue Mackay Montreal" },
+  mtAdelaide: { name: "Masjid Toronto @ Adelaide", address: "84 Adelaide St E, Toronto", note: "About 10 min on foot from Union Station.", mapQuery: "Masjid Toronto 84 Adelaide St E Toronto" },
+  aisha: { name: "Mosque Aisha", address: "5550 Stanley Ave, Niagara Falls", note: "Closest mosque to Clifton Hill — a short taxi ride.", mapQuery: "Mosque Aisha 5550 Stanley Ave Niagara Falls" },
+  pearson: { name: "Pearson T1 prayer room", address: "Terminal 1, Level 1 Arrivals (before security), beside Tim Hortons", note: "Carpeted Muslim prayer room in the Multi-Faith Centre — where you wait for the 01:20 bus.", mapQuery: "Toronto Pearson Terminal 1" },
+};
+
+const mosquesByDay: Record<string, string[]> = {
+  "2026-10-01": ["fra", "yvr", "jamia"],
+  "2026-10-02": ["arRahman", "jamia"],
+  "2026-10-03": ["jamia"],
+  "2026-10-04": ["jamia"],
+  "2026-10-05": ["jamia"],
+  "2026-10-06": ["jamia"],
+  "2026-10-07": ["jamia"],
+  "2026-10-08": ["jamia", "yvr"],
+  "2026-10-09": ["yul", "madinah"],
+  "2026-10-10": ["madinah"],
+  "2026-10-11": ["mtAdelaide", "aisha", "pearson"],
+  "2026-10-12": ["madinah", "yul"],
+};
+
+// The two Fridays in Canada.
+const jumuah: Record<string, string> = {
+  "2026-10-02": "Friday: Jumu'ah at Masjid Ar-Rahman (North Shore) or Al-Jamia — check the khutbah time the day before.",
+  "2026-10-09": "Friday: Jumu'ah at Al-Madinah Centre downtown fits after the nap, before the Tunisian lunch — check the khutbah time.",
+};
+
+export function prayersFor(date: string) {
+  return {
+    times: prayers.days[date as keyof typeof prayers.days] ?? null,
+    method: prayers.note,
+    mosques: (mosquesByDay[date] ?? []).map((k) => mosques[k]),
+    jumuah: jumuah[date] ?? null,
+  };
+}
+
 export interface GuideDay {
   date: string; // YYYY-MM-DD
   city: string;
   sunCity?: SunCity; // absent on transit-only days outside Canada
+  zone: Zone; // the day's local time zone
   title: string;
   steps: (Stop | Leg)[];
   tips?: string[];
@@ -120,11 +194,12 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-01",
     city: "Tunis → Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "Fly in via Frankfurt, Seawall & English Bay sunset",
     steps: [
-      stop({ time: "Sep 30, 23:00", place: "Tunis–Carthage (TUN)", what: "Check in for the 01:35 departure.", mapQuery: "Tunis-Carthage International Airport" }),
+      stop({ time: "Sep 30, 23:00", zone: "tunis", place: "Tunis–Carthage (TUN)", what: "Check in for the 01:35 departure.", mapQuery: "Tunis-Carthage International Airport" }),
       leg({ mode: "flight", route: "Tunis (TUN) 01:35 → Frankfurt (FRA) 05:10 · Air Canada AC9277", minutes: "2 h 35", cost: "Booked" }),
-      stop({ time: "05:10", place: "Frankfurt Airport", what: "8-hour connection. Stay airside and rest — leaving the airport needs a Schengen entry.", photo: "fra", mapQuery: "Frankfurt Airport Terminal 1" }),
+      stop({ time: "05:10", zone: "frankfurt", place: "Frankfurt Airport", what: "8-hour connection. Stay airside and rest — leaving the airport needs a Schengen entry.", photo: "fra", mapQuery: "Frankfurt Airport Terminal 1" }),
       leg({ mode: "flight", route: "Frankfurt (FRA) 13:20 → Vancouver (YVR) 14:20", minutes: "~10 h", cost: "Booked" }),
       stop({ time: "14:20", place: "Vancouver Intl (YVR)", what: "Immigration + bags usually take 45–60 min. Then follow signs to the Canada Line.", photo: "yvr", mapQuery: "YVR Airport Station Canada Line" }),
       leg({ mode: "skytrain", route: "Canada Line → Vancouver City Centre / Waterfront", minutes: "25", cost: "≈$10–12 incl. the $6.50 AddFare (tap card)", taxi: "Flat zone fare ≈$35–46, ~30 min", from: "YVR-Airport Station", to: "Waterfront Station Vancouver" }),
@@ -141,6 +216,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-02",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "North Shore: Capilano & Grouse Mountain",
     steps: [
       stop({ time: "08:45", place: "Canada Place", what: "Free Capilano shuttle pickup (every ~30 min, year-round).", photo: "canada-place", mapQuery: "Canada Place Vancouver" }),
@@ -161,6 +237,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-03",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "Granville Island, Gastown & Queen Elizabeth Park",
     steps: [
       stop({ time: "09:00", place: "Hornby St Aquabus dock", what: "Little rainbow ferries across False Creek.", photo: "aquabus", mapQuery: "Aquabus Hornby Street Dock Vancouver" }),
@@ -182,6 +259,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-04",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "IASAM · Day 1",
     steps: [
       stop({ time: "Day", place: "IASAM event", what: "Conference sessions." }),
@@ -194,6 +272,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-05",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "IASAM · Day 2",
     steps: [
       stop({ time: "Day", place: "IASAM event", what: "Conference sessions." }),
@@ -207,6 +286,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-06",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "IASAM · Day 3",
     steps: [
       stop({ time: "Day", place: "IASAM event", what: "Conference sessions." }),
@@ -218,6 +298,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-07",
     city: "Vancouver",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "IASAM · Day 4 — last full evening in Vancouver",
     steps: [
       stop({ time: "Day", place: "IASAM event", what: "Conference sessions." }),
@@ -229,6 +310,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-08",
     city: "Vancouver → Calgary",
     sunCity: "vancouver",
+    zone: "vancouver",
     title: "IASAM · Day 5, evening flight east",
     steps: [
       stop({ time: "Morning", place: "Check out", what: "Leave your bags with the hotel luggage room, then go to the last conference day." }),
@@ -237,7 +319,7 @@ export const guideDays: GuideDay[] = [
       leg({ mode: "skytrain", route: "Canada Line → YVR-Airport (no AddFare in this direction)", minutes: "25", cost: "$3.50–5", taxi: "≈$35–46, 30 min in rush hour", from: "Vancouver City Centre Station", to: "YVR-Airport Station" }),
       stop({ time: "17:30", place: "Vancouver Intl (YVR)", what: "Domestic check-in, 2 h before departure.", photo: "yvr", mapQuery: "Vancouver International Airport" }),
       leg({ mode: "flight", route: "Vancouver (YVR) 19:30 → Calgary (YYC) 21:59", minutes: "~1 h 30 (+1 h time change)", cost: "Booked" }),
-      stop({ time: "21:59", place: "Calgary Intl (YYC)", what: "3-hour connection — stay airside, charge your phone, sleep if you can.", photo: "yyc", mapQuery: "Calgary International Airport" }),
+      stop({ time: "21:59", zone: "calgary", place: "Calgary Intl (YYC)", what: "3-hour connection — stay airside, charge your phone, sleep if you can.", photo: "yyc", mapQuery: "Calgary International Airport" }),
       leg({ mode: "flight", route: "Calgary (YYC) 01:00 → Montréal–Trudeau (YUL) 07:10 · overnight", minutes: "~4 h (+2 h time change)", cost: "Booked" }),
     ],
     tips: ["Sleep on the Calgary → Montreal red-eye: you land at 07:10 and Oct 9 is a full day."],
@@ -246,6 +328,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-09",
     city: "Montreal",
     sunCity: "montreal",
+    zone: "eastern",
     title: "Land at 07:10: bagels, Jean-Talon, Tunisian lunch, Gardens of Light",
     steps: [
       stop({ time: "07:10", place: "Montréal–Trudeau (YUL)", what: "Buy the $11.25 747 ticket at the arrivals machine — it's a 24 h pass for every bus and métro ride today.", photo: "yul", mapQuery: "Montréal-Trudeau International Airport" }),
@@ -271,6 +354,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-10",
     city: "Montreal → Toronto",
     sunCity: "montreal",
+    zone: "eastern",
     title: "Notre-Dame, Old Montreal, Mount Royal, then the night bus",
     steps: [
       stop({ time: "08:30", place: "Check out", what: "Leave bags at the hotel until ~16:00. Buy a new fare — the 747 pass expires this morning." }),
@@ -294,6 +378,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-11",
     city: "Toronto & Niagara",
     sunCity: "toronto",
+    zone: "eastern",
     title: "Niagara Falls day trip, CN Tower at night",
     steps: [
       stop({ time: "05:05", place: "Union Station", what: "Arrive. Freshen up, breakfast, drop bags at a luggage-storage spot near Union (book ahead — you'll be out ~15 h).", photo: "union-station", mapQuery: "Union Station Bus Terminal 81 Bay St Toronto" }),
@@ -319,6 +404,7 @@ export const guideDays: GuideDay[] = [
     date: "2026-10-12",
     city: "Toronto → Montreal → Rome",
     sunCity: "montreal",
+    zone: "eastern",
     title: "Night bus back, last lunch, fly home at 19:25",
     steps: [
       leg({ mode: "coach", route: "FlixBus Pearson T1 → Laval Cartier (booked, overnight)", minutes: "01:20 → 11:00", cost: "$77.48 (paid)" }),
@@ -335,11 +421,12 @@ export const guideDays: GuideDay[] = [
   {
     date: "2026-10-13",
     city: "Rome → Tunis",
+    zone: "rome",
     title: "Connection in Rome, home by evening",
     steps: [
       stop({ time: "09:15", place: "Rome Fiumicino (FCO)", what: "7 h 45 connection. Stay airside unless your passport/visa allows Schengen entry.", photo: "fco", mapQuery: "Rome Fiumicino Airport" }),
       leg({ mode: "flight", route: "Rome (FCO) 17:00 → Tunis (TUN) 17:20", minutes: "~1 h 20", cost: "Booked" }),
-      stop({ time: "17:20", place: "Tunis–Carthage (TUN)", what: "Welcome home.", mapQuery: "Tunis-Carthage International Airport" }),
+      stop({ time: "17:20", zone: "tunis", place: "Tunis–Carthage (TUN)", what: "Welcome home.", mapQuery: "Tunis-Carthage International Airport" }),
     ],
   },
 ];

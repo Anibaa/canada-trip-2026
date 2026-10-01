@@ -24,7 +24,7 @@ export function TodayView({ days }: { days: DayLite[] }) {
   useEffect(() => {
     const t = localToday();
     setToday(t);
-    if (t >= FIRST && t <= LAST) window.location.replace(`/guide#d-${t}`);
+    if (t >= FIRST && t <= LAST) window.location.replace(`/#d-${t}`);
   }, []);
 
   if (!today || (today >= FIRST && today <= LAST)) {
@@ -36,7 +36,7 @@ export function TodayView({ days }: { days: DayLite[] }) {
       <div>
         <h1 className="font-display text-4xl font-semibold">Welcome home 🇹🇳</h1>
         <p className="mt-3 text-ink-soft">The trip is over — the whole plan is still in the guide.</p>
-        <Link href="/guide" className="mt-6 inline-block rounded-full bg-teal px-5 py-3 font-semibold text-white">
+        <Link href="/" className="mt-6 inline-block rounded-full bg-teal px-5 py-3 font-semibold text-white">
           Open the day guide
         </Link>
       </div>
@@ -74,7 +74,7 @@ export function TodayView({ days }: { days: DayLite[] }) {
         {days.map((d, i) => (
           <li key={d.date}>
             <Link
-              href={`/guide#d-${d.date}`}
+              href={`/#d-${d.date}`}
               className="flex items-baseline gap-3 rounded-xl border border-line bg-bg-raised px-4 py-3 hover:bg-panel"
             >
               <span className="tabular w-14 shrink-0 text-sm font-bold text-teal">Oct {Number(d.date.slice(8))}</span>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { BottomNav } from "@/components/BottomNav";
 import { RegisterSW } from "@/components/RegisterSW";
+import { NowClocks } from "@/components/NowClocks";
 import { SaveOffline } from "@/components/SaveOffline";
 import "./globals.css";
 
@@ -20,13 +21,12 @@ export const viewport: Viewport = {
 };
 
 const navLinks = [
-  { href: "/", label: "Route" },
+  { href: "/", label: "Guide" },
+  { href: "/today", label: "Today" },
   { href: "/vancouver", label: "Vancouver" },
   { href: "/toronto", label: "Toronto & Niagara" },
   { href: "/montreal", label: "Montreal" },
   { href: "/itinerary", label: "Itinerary" },
-  { href: "/guide", label: "Day guide" },
-  { href: "/today", label: "Today" },
   { href: "/transport", label: "Transport & Budget" },
 ];
 
@@ -45,14 +45,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="flex items-center justify-between gap-5 py-3 md:justify-start">
               <Link href="/" className="shrink-0 whitespace-nowrap font-display text-[19px] font-semibold">
-                Canada Loop · Oct 2026
+                Canada Loop
               </Link>
-              <Link
-                href="/today"
-                className="rounded-full bg-teal px-3.5 py-1.5 text-sm font-semibold text-white md:hidden"
-              >
-                Today
-              </Link>
+              <span className="md:order-last md:ml-auto">
+                <NowClocks />
+              </span>
               <div className="hidden gap-1 overflow-x-auto [scrollbar-width:none] md:flex">
                 {navLinks.map((l) => (
                   <Link

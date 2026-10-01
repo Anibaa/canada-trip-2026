@@ -1,0 +1,148 @@
+{
+  "note": "Aladhan API. Canada: ISNA (method 2); Rome: Muslim World League (method 3). Asr: standard (Shafi'i/Maliki/Hanbali).",
+  "days": {
+    "2026-10-01": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:45",
+      "sunrise": "07:13",
+      "dhuhr": "13:02",
+      "asr": "16:12",
+      "maghrib": "18:51",
+      "isha": "20:18"
+    },
+    "2026-10-02": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:47",
+      "sunrise": "07:14",
+      "dhuhr": "13:02",
+      "asr": "16:10",
+      "maghrib": "18:49",
+      "isha": "20:16"
+    },
+    "2026-10-03": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:48",
+      "sunrise": "07:15",
+      "dhuhr": "13:01",
+      "asr": "16:09",
+      "maghrib": "18:46",
+      "isha": "20:14"
+    },
+    "2026-10-04": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:50",
+      "sunrise": "07:17",
+      "dhuhr": "13:01",
+      "asr": "16:07",
+      "maghrib": "18:44",
+      "isha": "20:12"
+    },
+    "2026-10-05": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:51",
+      "sunrise": "07:18",
+      "dhuhr": "13:01",
+      "asr": "16:06",
+      "maghrib": "18:42",
+      "isha": "20:09"
+    },
+    "2026-10-06": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:53",
+      "sunrise": "07:20",
+      "dhuhr": "13:00",
+      "asr": "16:04",
+      "maghrib": "18:40",
+      "isha": "20:07"
+    },
+    "2026-10-07": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:54",
+      "sunrise": "07:21",
+      "dhuhr": "13:00",
+      "asr": "16:03",
+      "maghrib": "18:38",
+      "isha": "20:05"
+    },
+    "2026-10-08": {
+      "city": "Vancouver",
+      "method": "ISNA",
+      "tz": "America/Vancouver",
+      "fajr": "05:56",
+      "sunrise": "07:23",
+      "dhuhr": "13:00",
+      "asr": "16:01",
+      "maghrib": "18:36",
+      "isha": "20:03"
+    },
+    "2026-10-09": {
+      "city": "Montreal",
+      "method": "ISNA",
+      "tz": "America/Toronto",
+      "fajr": "05:42",
+      "sunrise": "07:03",
+      "dhuhr": "12:41",
+      "asr": "15:47",
+      "maghrib": "18:19",
+      "isha": "19:40"
+    },
+    "2026-10-10": {
+      "city": "Montreal",
+      "method": "ISNA",
+      "tz": "America/Toronto",
+      "fajr": "05:43",
+      "sunrise": "07:04",
+      "dhuhr": "12:41",
+      "asr": "15:46",
+      "maghrib": "18:18",
+      "isha": "19:39"
+    },
+    "2026-10-11": {
+      "city": "Toronto",
+      "method": "ISNA",
+      "tz": "America/Toronto",
+      "fajr": "06:08",
+      "sunrise": "07:27",
+      "dhuhr": "13:04",
+      "asr": "16:10",
+      "maghrib": "18:41",
+      "isha": "19:59"
+    },
+    "2026-10-12": {
+      "city": "Montreal",
+      "method": "ISNA",
+      "tz": "America/Toronto",
+      "fajr": "05:45",
+      "sunrise": "07:07",
+      "dhuhr": "12:41",
+      "asr": "15:43",
+      "maghrib": "18:14",
+      "isha": "19:35"
+    },
+    "2026-10-13": {
+      "city": "Rome (FCO)",
+      "method": "MWL",
+      "tz": "Europe/Rome",
+      "fajr": "05:48",
+      "sunrise": "07:21",
+      "dhuhr": "12:57",
+      "asr": "16:05",
+      "maghrib": "18:33",
+      "isha": "20:00"
+    }
+  }
+}

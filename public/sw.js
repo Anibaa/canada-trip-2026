@@ -1,7 +1,7 @@
 // Offline support for the trip: pages are network-first (fresh forecast when online, last copy
 // when not); build assets and photos are cache-first. "Save for offline" pre-downloads everything.
-const CACHE = "canada-loop-v1";
-const PAGES = ["/", "/today", "/guide", "/itinerary", "/vancouver", "/toronto", "/montreal", "/transport"];
+const CACHE = "canada-loop-v2";
+const PAGES = ["/", "/today", "/itinerary", "/vancouver", "/toronto", "/montreal", "/transport"];
 // next.config.ts limits image widths; phones request 828 (2x screens) or 1080 (3x screens).
 const PHONE_WIDTHS = ["828", "1080"];
 
@@ -42,7 +42,7 @@ self.addEventListener("fetch", (e) => {
       fetch(req)
         .then((res) => put(url.pathname, res))
         .catch(() =>
-          caches.match(url.pathname).then((m) => m || caches.match("/guide")),
+          caches.match(url.pathname).then((m) => m || caches.match("/")),
         ),
     );
     return;

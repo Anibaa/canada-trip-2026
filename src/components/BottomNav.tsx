@@ -6,7 +6,6 @@ import { useState } from "react";
 
 // Phone-only tab bar: the pages you need on the go, within thumb reach.
 const icons = {
-  home: "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z",
   today: "M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21zm0-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
   guide: "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01",
   places: "M4 21V8l6-4v17M10 21V11l10-3v13M4 21h16M7 10v.01M7 14v.01M14 13v.01M17 13v.01M14 17v.01M17 17v.01",
@@ -77,9 +76,8 @@ export function BottomNav() {
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Main"
       >
-        {tab("/", "Home", icons.home)}
+        {tab("/", "Guide", icons.guide)}
         {tab("/today", "Today", icons.today)}
-        {tab("/guide", "Guide", icons.guide)}
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
